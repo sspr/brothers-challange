@@ -1,16 +1,11 @@
-import { render, screen } from '@testing-library/react';
-
+import { render, screen } from 'tests';
 import { translations } from 'i18n/messages';
-import { AppProviders } from 'providers/AppProviders';
 import { App } from './App';
+import { AppLocale } from 'context/locale/appLocale.enum';
 
 describe('App component', () => {
   it('renders page title', () => {
-    render(
-      <AppProviders>
-        <App />
-      </AppProviders>,
-    );
+    render(<App />, { locale: AppLocale.en });
 
     expect(screen.getByText(translations.en['page.title'])).toBeInTheDocument();
   });
