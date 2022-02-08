@@ -1,3 +1,5 @@
 {
-  "page.title": "Brothers' challange"
+  "header.title": "Brothers' challange",
+  "header.login": "Login",
+  "header.logout": "Logout"
 }
