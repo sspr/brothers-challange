@@ -1,10 +1,10 @@
-import { useIntl } from 'react-intl';
 import Button from '@mui/material/Button';
 
 import { theme } from 'assets/styles/theme';
+import { useLocale } from 'hooks';
 
 export const App = () => {
-  const { formatMessage } = useIntl();
+  const { formatMessage } = useLocale();
 
   return (
     <>

@@ -1,29 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { blue, blueGrey, deepOrange, green, purple, red } from '@mui/material/colors';
 
-declare module '@mui/material/styles' {
-  interface Theme {
-    color: {
-      red: string;
-      purple: string;
-      blue: string;
-      green: string;
-      grey: string;
-      orange: string;
-    };
-  }
-  interface ThemeOptions {
-    color?: {
-      red?: string;
-      purple?: string;
-      blue?: string;
-      green?: string;
-      grey?: string;
-      orange?: string;
-    };
-  }
-}
-
 export const theme = createTheme({
   palette: {
     primary: {
@@ -31,6 +8,7 @@ export const theme = createTheme({
     },
   },
   color: {
+    white: '#FFF',
     red: red[500],
     purple: purple[500],
     blue: blue[500],

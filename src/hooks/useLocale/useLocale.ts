@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
+
 import { LocaleContext } from 'context/locale/localeContext/LocaleContext';
 import { LocaleContextValuesTypes } from 'context/locale/localeContext/LocaleContext.types';
 
