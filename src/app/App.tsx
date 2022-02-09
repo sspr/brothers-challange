@@ -1,18 +1,9 @@
-import Button from '@mui/material/Button';
+import { useState } from 'react';
 
-import { theme } from 'assets/styles/theme';
-import { useLocale } from 'hooks';
+import { Header } from 'ui';
 
 export const App = () => {
-  const { formatMessage } = useLocale();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return (
-    <>
-      {formatMessage({ id: 'page.title' })}
-      <br />
-      <Button variant="contained" sx={{ backgroundColor: theme.color.green }} color="primary">
-        Button
-      </Button>
-    </>
-  );
+  return <Header isLoggedIn={isLoggedIn} />;
 };

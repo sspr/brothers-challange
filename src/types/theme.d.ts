@@ -14,14 +14,14 @@ declare module '@mui/material/styles' {
     };
   }
   interface ThemeOptions {
-    color?: {
-      white?: string;
-      red?: string;
-      purple?: string;
-      blue?: string;
-      green?: string;
-      grey?: string;
-      orange?: string;
+    color: {
+      white: string;
+      red: string;
+      purple: string;
+      blue: string;
+      green: string;
+      grey: string;
+      orange: string;
     };
   }
 }

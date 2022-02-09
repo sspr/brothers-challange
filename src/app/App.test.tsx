@@ -7,6 +7,6 @@ describe('App component', () => {
   it('renders page title', () => {
     render(<App />, { locale: AppLocale.en });
 
-    expect(screen.getByText(translations.en['page.title'])).toBeInTheDocument();
+    expect(screen.getByText(translations.en['header.title'])).toBeInTheDocument();
   });
 });
