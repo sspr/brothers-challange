@@ -6,9 +6,9 @@ import { AppLocale } from 'context/locale/appLocale.enum';
 import { styles } from './LanguageSwitch.styles';
 import { LanguageSwitchProps } from './LanguageSwitch.types';
 
-export const LanguageSwitch = ({ initialValue, onChange }: LanguageSwitchProps) => {
+export const LanguageSwitch = ({ value, onChange }: LanguageSwitchProps) => {
   const handleChange = (event: SelectChangeEvent) => {
-    if (event.target.value in AppLocale && event.target.value !== initialValue) {
+    if (event.target.value in AppLocale && event.target.value !== value) {
       onChange(event.target.value as AppLocale);
     }
   };
@@ -16,11 +16,12 @@ export const LanguageSwitch = ({ initialValue, onChange }: LanguageSwitchProps) 
   return (
     <FormControl size="small" sx={styles.formControl}>
       <Select
-        value={initialValue}
+        value={value}
         onChange={handleChange}
         inputProps={{ 'aria-label': 'Without label' }}
         variant="standard"
         sx={styles.languageSwitch}
+        data-testid="languageSwitch"
       >
         {Object.values(AppLocale).map((lang) => (
           <MenuItem key={lang} value={lang}>

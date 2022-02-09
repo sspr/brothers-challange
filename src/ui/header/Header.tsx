@@ -13,13 +13,13 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
   const { locale, setLocale, formatMessage } = useLocale();
 
   return (
-    <Box sx={styles.box}>
+    <Box sx={styles.headerWrapper}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={styles.typography}>
+          <Typography variant="h6" component="div" sx={styles.title}>
             {formatMessage({ id: 'header.title' })}
           </Typography>
-          <LanguageSwitch initialValue={locale} onChange={setLocale} />
+          <LanguageSwitch value={locale} onChange={setLocale} />
           <Button color="inherit" variant="outlined">
             {isLoggedIn ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
           </Button>

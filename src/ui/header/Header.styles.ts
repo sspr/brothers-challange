@@ -1,4 +1,4 @@
 export const styles = {
-  box: { flexGrow: 1 },
-  typography: { flexGrow: 1 },
+  headerWrapper: { flexGrow: 1 },
+  title: { flexGrow: 1 },
 };
