@@ -3,5 +3,13 @@
   "header.login": "Zaloguj się",
   "header.logout": "Wyloguj się",
   "rankingCard.points": "punktów",
-  "rankingCard.percentOfGoal": "celu"
+  "rankingCard.percentOfGoal": "celu",
+  "rankingTable.summary": "Podsumowanie",
+  "rankingTable.cycling": "Jazda rowerem",
+  "rankingTable.running": "Bieganie",
+  "rankingTable.swimming": "Pływanie",
+  "rankingTable.walking": "Marsz",
+  "rankingTable.others": "Inne",
+  "rankingTable.pushUps": "Pompki",
+  "rankingTable.pts": "pkt"
 }

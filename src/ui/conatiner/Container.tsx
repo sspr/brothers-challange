@@ -5,7 +5,7 @@ import { ContainerProps } from './Container.types';
 
 export const Container = ({ children }: ContainerProps) => {
   return (
-    <Paper elevation={styles.elevation}>
+    <Paper elevation={styles.elevation} sx={styles.marginTop}>
       <CardContent>{children}</CardContent>
     </Paper>
   );
