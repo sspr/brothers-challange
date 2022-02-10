@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import { useLocale } from 'hooks';
-import { Container } from 'ui';
+import { Card } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
 
@@ -14,7 +14,7 @@ export const RankigTable = ({ data }: RankingTableProps) => {
   const { formatMessage } = useLocale();
 
   return (
-    <Container>
+    <Card>
       <Typography>{formatMessage({ id: 'rankingTable.summary' })}</Typography>
       <Table aria-label="simple table" sx={styles.table}>
         <TableHead>
@@ -44,6 +44,6 @@ export const RankigTable = ({ data }: RankingTableProps) => {
           ))}
         </TableBody>
       </Table>
-    </Container>
+    </Card>
   );
 };

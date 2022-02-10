@@ -1,11 +1,11 @@
 import { translations } from 'i18n/messages';
 import { render, screen } from 'tests';
-import { RANKIG_MOCK } from 'tests/mock/rankingMock';
+import { RANKING_MOCK } from 'tests/mock/rankingMock';
 import { RankigTable } from './RankingTable';
 
 describe('RankingTable component', () => {
   it('renders ranking table correctly', () => {
-    render(<RankigTable data={RANKIG_MOCK} />);
+    render(<RankigTable data={RANKING_MOCK} />);
 
     expect(screen.getByText(translations.en['rankingTable.summary'])).toBeInTheDocument();
     expect(screen.getByText(translations.en['rankingTable.cycling'])).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('RankingTable component', () => {
     expect(screen.getByText(translations.en['rankingTable.others'])).toHaveStyle({ fontWeight: 500 });
     expect(screen.getByText(translations.en['rankingTable.pushUps'])).toHaveStyle({ fontWeight: 500 });
 
-    RANKIG_MOCK.forEach((rank) => {
+    RANKING_MOCK.forEach((rank) => {
       expect(screen.getByText(rank.name, { exact: false })).toBeInTheDocument();
       expect(screen.getByText(rank.cycling, { exact: false })).toBeInTheDocument();
       expect(screen.getByText(rank.running, { exact: false })).toBeInTheDocument();

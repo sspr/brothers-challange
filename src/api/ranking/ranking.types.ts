@@ -2,13 +2,14 @@ export enum Goal {
   GOAL = 2222,
 }
 
-export type UserDestails = {
+export type UserDetails = {
   name: string;
-  points: number;
+  score: number;
   cycling: number;
   running: number;
   swimming: number;
   walking: number;
+  elevation: number;
   others: number;
   pushUps: number;
 };

@@ -1,9 +1,9 @@
 import { CardContent, Paper } from '@mui/material';
 
-import { styles } from './Container.styles';
-import { ContainerProps } from './Container.types';
+import { styles } from './Card.styles';
+import { CardProps } from './Card.types';
 
-export const Container = ({ children }: ContainerProps) => {
+export const Card = ({ children }: CardProps) => {
   return (
     <Paper elevation={styles.elevation} sx={styles.marginTop}>
       <CardContent>{children}</CardContent>
