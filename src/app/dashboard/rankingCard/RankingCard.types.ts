@@ -1,5 +1,5 @@
 export type RankingCardProps = {
   name: string;
-  points: number;
+  score: number;
   rank: number;
 };

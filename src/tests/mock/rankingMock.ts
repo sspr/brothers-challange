@@ -1,4 +1,4 @@
-export const RANKIG_MOCK = [
-  { name: 'Michał', points: 1024 },
-  { name: 'Marcin', points: 512 },
+export const RANKING_MOCK = [
+  { name: 'Michał', score: 1024 },
+  { name: 'Marcin', score: 512 },
 ];

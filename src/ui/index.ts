@@ -1,2 +1,2 @@
 export * from './header/Header';
-export * from './conatiner/Container';
+export * from './card/Card';
