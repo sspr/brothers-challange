@@ -3,5 +3,14 @@
   "header.login": "Login",
   "header.logout": "Logout",
   "rankingCard.points": "points",
-  "rankingCard.percentOfGoal": "of goal"
+  "rankingCard.percentOfGoal": "of goal",
+  "rankingTable.summary": "Summary",
+  "rankingTable.cycling": "Cycling",
+  "rankingTable.running": "Running",
+  "rankingTable.swimming": "Swimming",
+  "rankingTable.walking": "Walking",
+  "rankingTable.elevation": "Elevation",
+  "rankingTable.others": "Others",
+  "rankingTable.pushUps": "Push-ups",
+  "rankingTable.pts": "pts"
 }
