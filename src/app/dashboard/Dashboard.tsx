@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { styles } from './Dashboard.styles';
 import { RankingCard } from './rankingCard/RankingCard';
 import { RANKING_MOCK } from 'tests/mock/rankingMock';
-import { RankigTable } from './rankingTable/RankingTable';
+import { RankingTable } from './rankingTable/RankingTable';
 
 export const Dashboard = () => {
   return (
@@ -19,7 +19,7 @@ export const Dashboard = () => {
           </Grid>
         ))}
       </Grid>
-      <RankigTable data={RANKING_MOCK} />
+      <RankingTable data={RANKING_MOCK} />
     </>
   );
 };

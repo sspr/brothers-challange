@@ -9,6 +9,7 @@
   "rankingTable.running": "Running",
   "rankingTable.swimming": "Swimming",
   "rankingTable.walking": "Walking",
+  "rankingTable.elevation": "Elevation",
   "rankingTable.others": "Others",
   "rankingTable.pushUps": "Push-ups",
   "rankingTable.pts": "pts"

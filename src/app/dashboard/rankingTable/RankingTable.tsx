@@ -5,12 +5,13 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+import { Disciplines } from 'api/ranking/ranking.types';
 import { useLocale } from 'hooks';
 import { Card } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
 
-export const RankigTable = ({ data }: RankingTableProps) => {
+export const RankingTable = ({ data }: RankingTableProps) => {
   const { formatMessage } = useLocale();
 
   return (
@@ -20,12 +21,11 @@ export const RankigTable = ({ data }: RankingTableProps) => {
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.cycling' })}</TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.running' })}</TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.swimming' })}</TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.walking' })}</TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.others' })}</TableCell>
-            <TableCell align="center">{formatMessage({ id: 'rankingTable.pushUps' })}</TableCell>
+            {Object.values(Disciplines).map((discipline) => (
+              <TableCell key={discipline} align="center">
+                {formatMessage({ id: `rankingTable.${discipline}` })}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -36,6 +36,7 @@ export const RankigTable = ({ data }: RankingTableProps) => {
               <TableCell align="center">{user.running} km</TableCell>
               <TableCell align="center">{user.swimming} km</TableCell>
               <TableCell align="center">{user.walking} km</TableCell>
+              <TableCell align="center">{user.elevation} m</TableCell>
               <TableCell align="center">
                 {user.others} {formatMessage({ id: 'rankingTable.pts' })}
               </TableCell>

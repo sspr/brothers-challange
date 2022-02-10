@@ -1,8 +1,4 @@
-export enum Goal {
-  GOAL = 2222,
-}
-
-export type UserDetails = {
+export type PlayerStats = {
   name: string;
   score: number;
   cycling: number;
@@ -13,3 +9,13 @@ export type UserDetails = {
   others: number;
   pushUps: number;
 };
+
+export enum Disciplines {
+  CYCLING = 'cycling',
+  RUNNING = 'running',
+  SWIMMING = 'swimming',
+  WALKING = 'walking',
+  ELEVATION = 'elevation',
+  OTHER = 'others',
+  PUSHUPS = 'pushUps',
+}

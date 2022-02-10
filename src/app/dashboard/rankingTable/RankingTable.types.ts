@@ -1,5 +1,5 @@
-import { UserDetails } from 'api/ranking/ranking.types';
+import { PlayerStats } from 'api/ranking/ranking.types';
 
 export type RankingTableProps = {
-  data: UserDetails[];
+  data: PlayerStats[];
 };
