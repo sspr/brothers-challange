@@ -1,4 +1,3 @@
 export const styles = {
-  elevation: 3,
-  marginTop: { marginTop: '16px' },
+  margin: { mt: 2 },
 };

@@ -3,11 +3,13 @@ import { translations } from 'i18n/messages';
 import { RankingCard } from './RankingCard';
 import { RANKING_MOCK } from 'tests/mock/rankingMock';
 
+const GOAL = 2222;
+
 describe('RankingCard component', () => {
   it('renders ranking card correctly', () => {
     render(<RankingCard name={RANKING_MOCK[0].name} score={RANKING_MOCK[0].score} rank={1} />);
 
-    const progressPercent = Math.round((RANKING_MOCK[0].score / 2222) * 100);
+    const progressPercent = Math.round((RANKING_MOCK[0].score / GOAL) * 100);
 
     expect(screen.getByText(RANKING_MOCK[0].name)).toBeInTheDocument();
     expect(screen.getByText(`${RANKING_MOCK[0].score} ${translations.en['rankingCard.points']}`)).toBeInTheDocument();
@@ -16,7 +18,7 @@ describe('RankingCard component', () => {
     ).toBeInTheDocument();
     expect(screen.getByTestId('EmojiEventsIcon')).toHaveStyle({ color: 'gold' });
     expect(document.querySelector('.MuiLinearProgress-bar')).toHaveStyle({
-      transform: `translateX(${RANKING_MOCK[0].score < 2222 ? progressPercent - 100 : 0}%)`,
+      transform: `translateX(${RANKING_MOCK[0].score < GOAL ? progressPercent - 100 : 0}%)`,
     });
   });
 
