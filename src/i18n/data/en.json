@@ -1,5 +1,7 @@
 {
   "header.title": "Brothers' challange",
   "header.login": "Login",
-  "header.logout": "Logout"
+  "header.logout": "Logout",
+  "rankingCard.points": "points",
+  "rankingCard.percentOfGoal": "of goal"
 }

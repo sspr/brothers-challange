@@ -1,5 +1,7 @@
 {
   "header.title": "Wyzwanie braci",
   "header.login": "Zaloguj się",
-  "header.logout": "Wyloguj się"
+  "header.logout": "Wyloguj się",
+  "rankingCard.points": "punktów",
+  "rankingCard.percentOfGoal": "celu"
 }
