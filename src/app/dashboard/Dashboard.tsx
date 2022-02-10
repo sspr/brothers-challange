@@ -6,7 +6,7 @@ import { RANKING_MOCK } from 'tests/mock/rankingMock';
 
 export const Dashboard = () => {
   return (
-    <Grid container spacing={2} sx={styles.container.margin} columns={{ xs: 6, sm: 12, md: 12 }}>
+    <Grid container spacing={2} sx={styles.container} columns={{ xs: 6, sm: 12, md: 12 }}>
       {RANKING_MOCK.sort((a, b) => b.score - a.score).map((rank, index) => (
         <Grid key={rank.name} item xs={styles.item.width}>
           <RankingCard

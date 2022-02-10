@@ -6,12 +6,12 @@ export const styles = {
     color: 'silver',
   },
   progressBar: {
-    margin: '8px 0',
+    my: 1,
   },
   wrapper: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '24px',
+    mb: 3,
   },
 };
