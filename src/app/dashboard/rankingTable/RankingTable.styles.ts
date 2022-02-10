@@ -1,4 +1,4 @@
 export const styles = {
-  table: { marginTop: '16px' },
+  table: { mt: 2 },
   header: { fontWeight: '500' },
 };
