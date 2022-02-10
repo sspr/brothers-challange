@@ -1,3 +1,3 @@
 export const styles = {
-  margin: { mt: 2 },
+  paper: { mt: 2 },
 };

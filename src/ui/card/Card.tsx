@@ -5,7 +5,7 @@ import { CardProps } from './Card.types';
 
 export const Card = ({ children }: CardProps) => {
   return (
-    <Paper elevation={3} sx={styles.margin}>
+    <Paper elevation={3} sx={styles.paper}>
       <CardContent>{children}</CardContent>
     </Paper>
   );
