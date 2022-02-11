@@ -1,5 +1,3 @@
-import { PlayerStats } from 'api/ranking/ranking.types';
+import { StatsResponse } from 'api/types';
 
-export type RankingTableProps = {
-  data: PlayerStats[];
-};
+export type RankingTableProps = { stats: Record<string, StatsResponse> };

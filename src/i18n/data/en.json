@@ -6,12 +6,13 @@
   "rankingCard.points": "points",
   "rankingCard.percentOfGoal": "of goal",
   "rankingTable.summary": "Summary",
-  "rankingTable.cycling": "Cycling",
+  "rankingTable.bike": "Cycling",
   "rankingTable.running": "Running",
   "rankingTable.swimming": "Swimming",
   "rankingTable.walking": "Walking",
   "rankingTable.elevation": "Elevation",
-  "rankingTable.others": "Others",
+  "rankingTable.other": "Others",
   "rankingTable.pushUps": "Push-ups",
-  "rankingTable.pts": "pts"
+  "rankingTable.pts": "pts",
+  "dashboard.error": "Something wen wrong. Please try agin later."
 }

@@ -5,13 +5,13 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import { Disciplines } from 'api/ranking/ranking.types';
+import { Disciplines } from 'api/types';
 import { useLocale } from 'hooks';
 import { Card } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
 
-export const RankingTable = ({ data }: RankingTableProps) => {
+export const RankingTable = ({ stats }: RankingTableProps) => {
   const { formatMessage } = useLocale();
 
   return (
@@ -30,46 +30,46 @@ export const RankingTable = ({ data }: RankingTableProps) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((user) => (
-              <TableRow key={user.name}>
-                <TableCell sx={styles.header}>{user.name}</TableCell>
+            {Object.keys(stats).map((user) => (
+              <TableRow key={user}>
+                <TableCell sx={styles.header}>{user}</TableCell>
                 <TableCell align="center">
-                  {user.cycling}{' '}
+                  {stats[user].bike}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     km
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  {user.running}{' '}
+                  {stats[user].running}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     km
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  {user.swimming}{' '}
+                  {stats[user].swimming}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     km
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  {user.walking}{' '}
+                  {stats[user].walking}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     km
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  {user.elevation}{' '}
+                  {stats[user].elevation}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     m
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  {user.others}{' '}
+                  {stats[user].other}{' '}
                   <Typography variant="caption" sx={styles.units}>
                     {formatMessage({ id: 'rankingTable.pts' })}
                   </Typography>
                 </TableCell>
-                <TableCell align="center">{user.pushUps}</TableCell>
+                <TableCell align="center">{stats[user].pushUps}</TableCell>
               </TableRow>
             ))}
           </TableBody>
