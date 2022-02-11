@@ -1,5 +1,6 @@
 {
-  "header.title": "Brothers' challange",
+  "page.description": "App comparing sport results",
+  "header.title": "Brothers' challenge",
   "header.login": "Login",
   "header.logout": "Logout",
   "rankingCard.points": "points",
