@@ -14,5 +14,8 @@
   "rankingTable.other": "Inne",
   "rankingTable.pushUps": "Pompki",
   "rankingTable.pts": "pkt",
-  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później."
+  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później.",
+  "login.email": "Adres email",
+  "login.password": "Hasło",
+  "login.rememberUser": "Zapamiętaj mnie"
 }
