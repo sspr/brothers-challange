@@ -6,12 +6,10 @@ import { RankingCardProps } from './RankingCard.types';
 import { useLocale } from 'hooks';
 import { Card } from 'ui';
 
-const GOAL = 2222;
-
-export const RankingCard = ({ name, score, rank }: RankingCardProps) => {
+export const RankingCard = ({ name, score, rank, goal }: RankingCardProps) => {
   const { formatMessage } = useLocale();
 
-  const progressPercent = Math.round((score / GOAL) * 100);
+  const progressPercent = Math.round((score / goal) * 100);
 
   return (
     <Card>
@@ -22,7 +20,7 @@ export const RankingCard = ({ name, score, rank }: RankingCardProps) => {
       <Typography>
         {score} {formatMessage({ id: 'rankingCard.points' })}
       </Typography>
-      <LinearProgress sx={styles.progressBar} variant="determinate" value={score < GOAL ? progressPercent : 100} />
+      <LinearProgress sx={styles.progressBar} variant="determinate" value={score < goal ? progressPercent : 100} />
       <Typography fontSize="small" align="right">
         {progressPercent} % {formatMessage({ id: 'rankingCard.percentOfGoal' })}
       </Typography>

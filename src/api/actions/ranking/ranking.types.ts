@@ -21,7 +21,7 @@ export type RankingResponse = {
       bike: number;
       elevation: number;
       other: number;
-      push_ups: number;
+      pushUps: number;
       running: number;
       swimming: number;
       walking: number;

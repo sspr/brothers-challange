@@ -9,10 +9,6 @@ export const client = axios.create({
 });
 
 client.interceptors.response.use(
-  (response) =>
-    requestPascalToCamelCase<
-      AxiosResponse<RankingResponse>,
-      AxiosResponse<RankingResponse & { stats: Record<string, { pushUps: string }> }>
-    >(response),
+  (response) => requestPascalToCamelCase<AxiosResponse<RankingResponse>>(response),
   (error) => Promise.reject(error),
 );
