@@ -1,10 +1,10 @@
 import { Grid, Typography } from '@mui/material';
 
-import { Spinner, styles } from './Dashboard.styles';
+import { styles } from './Dashboard.styles';
 import { RankingCard } from './rankingCard/RankingCard';
 import { RankingTable } from './rankingTable/RankingTable';
 import { DashboardProps } from './Dashboard.types';
-import { Card } from 'ui';
+import { Card, Spinner } from 'ui';
 import { useLocale } from 'hooks';
 
 export const Dashboard = ({ isLoading, isError, data }: DashboardProps) => {

@@ -1,3 +1,3 @@
-import { StatsResponse } from 'api/types';
+import { Data } from '../Dashboard.types';
 
-export type RankingTableProps = { stats: Record<string, StatsResponse> };
+export type RankingTableProps = Pick<Data, 'stats'>;

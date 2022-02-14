@@ -1,15 +1,3 @@
-export type PlayerStats = {
-  name: string;
-  score: number;
-  cycling: number;
-  running: number;
-  swimming: number;
-  walking: number;
-  elevation: number;
-  others: number;
-  pushUps: number;
-};
-
 export enum Disciplines {
   BIKE = 'bike',
   RUNNING = 'running',
@@ -20,25 +8,23 @@ export enum Disciplines {
   PUSHUPS = 'pushUps',
 }
 
-export type PlayerResponse = {
-  avatar: string;
-  name: string;
-  score: number;
-};
-
-export type StatsResponse = {
-  bike: number;
-  elevation: number;
-  other: number;
-  pushUps?: number;
-  push_ups?: number;
-  running: number;
-  swimming: number;
-  walking: number;
-};
-
-export type RankingResponseData = {
+export type RankingResponse = {
   goal: number;
-  players: PlayerResponse[];
-  stats: Record<string, StatsResponse>;
+  players: {
+    avatar: string;
+    name: string;
+    score: number;
+  }[];
+  stats: Record<
+    string,
+    {
+      bike: number;
+      elevation: number;
+      other: number;
+      push_ups: number;
+      running: number;
+      swimming: number;
+      walking: number;
+    }
+  >;
 };

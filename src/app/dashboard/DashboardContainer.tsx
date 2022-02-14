@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
 
 import { getRanking } from 'api/actions/ranking/ranking';
-import { RankingResponseData } from 'api/types';
 import { Dashboard } from './Dashboard';
+import { Data } from './Dashboard.types';
 
 export const DashboardContainer = () => {
-  const { isLoading, isError, data } = useQuery<RankingResponseData>('ranking', getRanking);
+  const { isLoading, isError, data } = useQuery<Data>('ranking', getRanking);
 
   return <Dashboard isLoading={isLoading} isError={isError} data={data} />;
 };
