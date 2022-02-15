@@ -16,6 +16,11 @@
   "rankingTable.pts": "pkt",
   "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później.",
   "login.email": "Adres email",
+  "login.email.error.maxLength": "Adres email jest za długi. Maksymalna ilość znaków to",
+  "login.email.error.required": "Adres email jest wymagany",
+  "login.email.error.pattern": "Nieprawidłowy adres email",
+  "login.email.password.maxLength": "Hasło jest za długie. Maksymalna ilość znaków to",
+  "login.email.password.required": "Hasło jest wymagane",
   "login.password": "Hasło",
-  "login.rememberUser": "Zapamiętaj mnie"
+  "login.checkbox": "Zapamiętaj mnie"
 }

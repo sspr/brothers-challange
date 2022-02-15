@@ -5,14 +5,12 @@ import { RankingResponse } from './types';
 
 export const client = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  timeout: 5000,
+  headers: {
+    'Content-type': 'application/json',
+  },
 });
 
 client.interceptors.response.use(
-  (response) =>
-    requestPascalToCamelCase<
-      AxiosResponse<RankingResponse>,
-      AxiosResponse<RankingResponse & { stats: Record<string, { pushUps: string }> }>
-    >(response),
+  (response) => requestPascalToCamelCase<AxiosResponse<RankingResponse>>(response),
   (error) => Promise.reject(error),
 );

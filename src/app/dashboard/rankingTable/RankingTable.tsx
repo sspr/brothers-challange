@@ -32,7 +32,7 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
           <TableBody>
             {Object.keys(stats).map((user) => (
               <TableRow key={user}>
-                <TableCell sx={styles.header}>{user}</TableCell>
+                <TableCell sx={styles.header}>{user.replace(/(^.)/g, (match) => match.toUpperCase())}</TableCell>
                 <TableCell align="center">
                   {stats[user].bike}{' '}
                   <Typography variant="caption" sx={styles.units}>

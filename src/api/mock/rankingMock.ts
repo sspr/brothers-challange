@@ -1,7 +1,6 @@
 import { RankingResponse } from 'api/types';
-import { Data } from 'app/dashboard/Dashboard.types';
 
-export const STATS_MOCK: Pick<Data, 'stats'> = {
+export const STATS_MOCK: Pick<RankingResponse, 'stats'> = {
   stats: {
     Michał: {
       bike: 10.1,
@@ -11,7 +10,6 @@ export const STATS_MOCK: Pick<Data, 'stats'> = {
       elevation: 1024,
       other: 12.1,
       pushUps: 390,
-      push_ups: 390,
     },
     Marcin: {
       bike: 360.23,
@@ -21,7 +19,6 @@ export const STATS_MOCK: Pick<Data, 'stats'> = {
       elevation: 2048,
       other: 50.56,
       pushUps: 265,
-      push_ups: 390,
     },
   },
 };

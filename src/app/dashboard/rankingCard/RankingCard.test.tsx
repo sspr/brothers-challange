@@ -7,7 +7,9 @@ const GOAL = 2222;
 
 describe('RankingCard component', () => {
   it('renders ranking card correctly', () => {
-    render(<RankingCard name={PLAYERS_MOCK.players[0].name} score={PLAYERS_MOCK.players[0].score} rank={1} />);
+    render(
+      <RankingCard goal={2222} name={PLAYERS_MOCK.players[0].name} score={PLAYERS_MOCK.players[0].score} rank={1} />,
+    );
 
     const progressPercent = Math.round((PLAYERS_MOCK.players[0].score / GOAL) * 100);
 
@@ -25,7 +27,9 @@ describe('RankingCard component', () => {
   });
 
   it('renders ranking card correctly, when index is equal to 2', () => {
-    render(<RankingCard name={PLAYERS_MOCK.players[0].name} score={PLAYERS_MOCK.players[0].score} rank={2} />);
+    render(
+      <RankingCard goal={2222} name={PLAYERS_MOCK.players[0].name} score={PLAYERS_MOCK.players[0].score} rank={2} />,
+    );
 
     expect(screen.getByTestId('EmojiEventsIcon')).toHaveStyle({ color: 'silver' });
   });

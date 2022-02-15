@@ -7,6 +7,4 @@ export const styles = {
     width: '100%',
   },
   avatar: { m: 1, bgcolor: 'primary.main' },
-  loginButton: { mt: 3, mb: 2 },
-  fromWrapper: { mt: 1 },
 };

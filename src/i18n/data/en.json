@@ -16,6 +16,11 @@
   "rankingTable.pts": "pts",
   "dashboard.error": "Something wen wrong. Please try agin later.",
   "login.email": "Email Address",
+  "login.email.error.maxLength": "Adres email is too long. Maximum length of email is",
+  "login.email.error.required": "Adres email is required",
+  "login.email.error.pattern": "Adres email is not valid",
+  "login.password.error.maxLength": "Password is too long. Maximum length of password is",
+  "login.password.error.required": "Password is required",
   "login.password": "Password",
-  "login.rememberUser": "Remember me"
+  "login.checkbox": "Remember me"
 }
