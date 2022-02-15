@@ -2,19 +2,17 @@ export const requestPascalToCamelCase = <TObject>(object: Record<string, any>): 
   const changeStringToCamelCase = (key: string) =>
     key
       .replace(/[^a-z0-9]{1,}./gi, (match) => match.toUpperCase().substring(match.length - 1))
-      .replace(/.{1}/, (match) => match.toLowerCase());
+      .replace(/^.{1}/, (match) => match.toLowerCase())
+      .replace(/[^a-z0-9]$/, '');
 
   const keysTuCamelCase = (input: any): any => {
     if (typeof input === 'object' && !Array.isArray(input)) {
       return Object.fromEntries(
-        Object.entries(input).map(([key, val]) => [
-          changeStringToCamelCase(key),
-          typeof val === 'object' ? keysTuCamelCase(val) : val,
-        ]),
+        Object.entries(input).map(([key, val]) => [changeStringToCamelCase(key), keysTuCamelCase(val)]),
       );
     }
 
-    if (typeof input === 'object' && Array.isArray(input)) {
+    if (Array.isArray(input)) {
       return input.map((element) => keysTuCamelCase(element));
     }
 
