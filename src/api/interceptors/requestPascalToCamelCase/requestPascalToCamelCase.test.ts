@@ -1,4 +1,3 @@
-// if static etc
 import { requestPascalToCamelCase } from './requestPascalToCamelCase';
 
 describe('requestPascalToCamelCase function', () => {

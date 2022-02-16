@@ -1,3 +1,10 @@
-import * as Styled from './Spinner.styles';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
-export const Spinner = () => <Styled.Spinner />;
+import { styles } from './Spinner.styles';
+
+export const Spinner = () => (
+  <Box sx={styles}>
+    <CircularProgress />
+  </Box>
+);
