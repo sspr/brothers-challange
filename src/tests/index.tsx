@@ -2,6 +2,7 @@ import { ReactElement, useState } from 'react';
 import { Queries, queries, render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material';
 import { IntlProvider } from 'react-intl';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { theme } from 'assets/styles/theme';
 import { AppLocale } from 'context/locale/appLocale.enum';
@@ -19,9 +20,11 @@ const customRender = (ui: ReactElement, options?: Omit<CustomRenderOptions, 'wra
 
     return (
       <ThemeProvider theme={theme}>
-        <IntlProvider defaultLocale={AppLocale.en} key={locale} locale={locale} messages={translations[locale]}>
-          <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>
-        </IntlProvider>
+        <Router>
+          <IntlProvider defaultLocale={AppLocale.en} key={locale} locale={locale} messages={translations[locale]}>
+            <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>
+          </IntlProvider>
+        </Router>
       </ThemeProvider>
     );
   };

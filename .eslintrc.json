@@ -41,7 +41,8 @@
       { "blankLine": "always", "prev": "*", "next": "switch" },
       { "blankLine": "always", "prev": "*", "next": "for" }
     ],
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/parsers": {

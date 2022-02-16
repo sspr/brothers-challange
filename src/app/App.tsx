@@ -3,7 +3,7 @@ import { Container } from '@mui/material';
 
 import { Header } from 'ui';
 import { usePageTitle } from 'hooks';
-import { DashboardContainer } from './dashboard/DashboardContainer';
+import { AppRoutes } from 'routing/AppRoutes';
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,7 +14,7 @@ export const App = () => {
     <>
       <Header isLoggedIn={isLoggedIn} />
       <Container maxWidth="md">
-        <DashboardContainer />
+        <AppRoutes />
       </Container>
     </>
   );

@@ -14,5 +14,13 @@
   "rankingTable.other": "Inne",
   "rankingTable.pushUps": "Pompki",
   "rankingTable.pts": "pkt",
-  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później."
+  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później.",
+  "login.email": "Adres email",
+  "login.email.error.maxLength": "Adres email jest za długi. Maksymalna ilość znaków to {maxLength}",
+  "login.email.error.required": "Adres email jest wymagany",
+  "login.email.error.pattern": "Nieprawidłowy adres email",
+  "login.password.error.maxLength": "Hasło jest za długie. Maksymalna ilość znaków to {maxLength}",
+  "login.password.error.required": "Hasło jest wymagane",
+  "login.password": "Hasło",
+  "login.checkbox": "Zapamiętaj mnie"
 }
