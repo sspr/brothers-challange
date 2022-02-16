@@ -40,7 +40,8 @@
       { "blankLine": "always", "prev": "*", "next": "if" },
       { "blankLine": "always", "prev": "*", "next": "switch" },
       { "blankLine": "always", "prev": "*", "next": "for" }
-    ]
+    ],
+    "@typescript-eslint/ban-ts-comment": "off"
   },
   "settings": {
     "import/parsers": {

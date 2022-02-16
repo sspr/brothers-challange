@@ -1,29 +1,39 @@
-import { Disciplines } from 'api/ranking/ranking.types';
+import { Disciplines } from 'api/actions/ranking/ranking.types';
 import { translations } from 'i18n/messages';
 import { render, screen } from 'tests';
-import { RANKING_MOCK } from 'tests/mock/rankingMock';
+import { STATS_MOCK } from 'api/mock/rankingMock';
 import { RankingTable } from './RankingTable';
 
 describe('RankingTable component', () => {
   it('renders ranking table correctly', () => {
-    render(<RankingTable data={RANKING_MOCK} />);
-
+    render(<RankingTable stats={STATS_MOCK} />);
     Object.values(Disciplines).forEach((discipline) => {
       expect(screen.getByText(translations.en[`rankingTable.${discipline}`])).toBeInTheDocument();
       expect(screen.getByText(translations.en[`rankingTable.${discipline}`])).toHaveStyle({ fontWeight: 500 });
     });
 
-    RANKING_MOCK.forEach((rank) => {
-      expect(screen.getByText(rank.name, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(rank.name)).toHaveStyle({ fontWeight: 500 });
-
-      expect(screen.getByText(`${rank.cycling} km`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(`${rank.running} km`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(`${rank.swimming} km`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(`${rank.walking} km`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(`${rank.elevation} m`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(`${rank.others} pts`, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(rank.pushUps, { exact: false })).toBeInTheDocument();
+    Object.keys(STATS_MOCK).forEach((name) => {
+      expect(screen.getByText(name, { exact: false })).toBeInTheDocument();
+      expect(screen.getByText(name)).toHaveStyle({ fontWeight: 500 });
+      expect(screen.getByText(`${STATS_MOCK[name].bike}`, { exact: false }).parentNode).toHaveTextContent(
+        `${STATS_MOCK[name].bike} km`,
+      );
+      expect(screen.getByText(`${STATS_MOCK[name].running}`, { exact: false })).toHaveTextContent(
+        `${STATS_MOCK[name].running} km`,
+      );
+      expect(screen.getByText(`${STATS_MOCK[name].swimming}`, { exact: false })).toHaveTextContent(
+        `${STATS_MOCK[name].swimming} km`,
+      );
+      expect(screen.getByText(`${STATS_MOCK[name].walking}`, { exact: false })).toHaveTextContent(
+        `${STATS_MOCK[name].walking} km`,
+      );
+      expect(screen.getByText(`${STATS_MOCK[name].elevation}`, { exact: false })).toHaveTextContent(
+        `${STATS_MOCK[name].elevation} m`,
+      );
+      expect(screen.getByText(`${STATS_MOCK[name].other}`, { exact: false })).toHaveTextContent(
+        `${STATS_MOCK[name].other} pts`,
+      );
+      expect(screen.getByText(String(STATS_MOCK[name].pushUps), { exact: false })).toBeInTheDocument();
     });
   });
 });

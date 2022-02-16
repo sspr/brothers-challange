@@ -1,16 +1,18 @@
 {
+  "page.description": "Aplikacja porównująca wyniki sportowe",
   "header.title": "Wyzwanie braci",
   "header.login": "Zaloguj się",
   "header.logout": "Wyloguj się",
   "rankingCard.points": "punktów",
   "rankingCard.percentOfGoal": "celu",
   "rankingTable.summary": "Podsumowanie",
-  "rankingTable.cycling": "Jazda rowerem",
+  "rankingTable.bike": "Jazda rowerem",
   "rankingTable.running": "Bieganie",
   "rankingTable.swimming": "Pływanie",
   "rankingTable.walking": "Marsz",
   "rankingTable.elevation": "Przewyższenie",
-  "rankingTable.others": "Inne",
+  "rankingTable.other": "Inne",
   "rankingTable.pushUps": "Pompki",
-  "rankingTable.pts": "pkt"
+  "rankingTable.pts": "pkt",
+  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później."
 }

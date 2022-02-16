@@ -14,7 +14,7 @@ describe('Header component', () => {
   it('renders language switch correctly', () => {
     render(<Header isLoggedIn={false} />, { locale: AppLocale.en });
 
-    expect(screen.getByText(/en/i)).toBeInTheDocument();
+    expect(screen.getByText('EN')).toBeInTheDocument();
 
     fireEvent.change(screen.getByTestId('languageSwitch').children[1], { target: { value: 'pl' } });
 
