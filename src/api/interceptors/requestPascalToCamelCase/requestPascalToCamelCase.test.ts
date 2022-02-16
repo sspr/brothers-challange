@@ -4,11 +4,11 @@ import { requestPascalToCamelCase } from './requestPascalToCamelCase';
 describe('requestPascalToCamelCase function', () => {
   it('changes object keys notation from pascal ', () => {
     const obj = {
-      A_a: 'I love pizza',
+      A_a_: 'I love pizza',
       b__b: 'I love pizza',
       c_c: {
         D_d: 'I love pizza',
-        e___e: {
+        _e___e: {
           Ff: 'I love pizza',
           g_g: [{ H_h: 'I love pizza' }],
         },

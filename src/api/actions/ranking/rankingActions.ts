@@ -1,6 +1,6 @@
 import { Action } from '../../types';
 
-export const createGetRanking = (): Action => ({
+export const createGetRankingAction = (): Action => ({
   method: 'GET',
   url: '/board',
 });
