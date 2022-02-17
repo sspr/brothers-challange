@@ -6,10 +6,10 @@ import { theme } from 'assets/styles/theme';
 export const StyledLink = styled(Link)`
   color: ${theme.palette.common.white};
   text-decoration: none;
-  font-weight: 400;
+  font-weight: ${theme.typography.fontWeightMedium};
 
   &:active {
-    font-weight: 400;
+    font-weight: ${theme.typography.fontWeightMedium};
   }
 `;
 

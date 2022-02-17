@@ -12,6 +12,12 @@ import { CheckboxField } from 'form/fields/checkboxField/CheckboxField';
 
 const inputsMaxLength = 30;
 
+const defaultValues = {
+  email: '',
+  password: '',
+  checkbox: false,
+};
+
 export const LoginForm = ({ onSubmit }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
@@ -19,14 +25,13 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFields>();
+  } = useForm<LoginFields>({ defaultValues });
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>
       <InputField
         control={control}
         name="email"
-        defaultValue=""
         fullWidth
         autoComplete="email"
         autoFocus
@@ -40,7 +45,6 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         control={control}
         name="password"
         type="password"
-        defaultValue=""
         fullWidth
         autoComplete="current-password"
         label={formatMessage({ id: 'login.password' })}

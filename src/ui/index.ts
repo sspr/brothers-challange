@@ -3,3 +3,4 @@ export * from './card/Card';
 export * from './spinner/Spinner';
 export * from './input/Input';
 export * from './checkbox/Checkbox';
+export * from './pageNotFound/PageNotFound';

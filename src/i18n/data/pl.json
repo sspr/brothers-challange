@@ -22,5 +22,6 @@
   "login.password.error.maxLength": "Hasło jest za długie. Maksymalna ilość znaków to {maxLength}",
   "login.password.error.required": "Hasło jest wymagane",
   "login.password": "Hasło",
-  "login.checkbox": "Zapamiętaj mnie"
+  "login.checkbox": "Zapamiętaj mnie",
+  "pageNotFound.homepage": "Strony głównej"
 }
