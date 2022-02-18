@@ -1,14 +1,13 @@
-import { useState } from 'react';
 import { Container } from '@mui/material';
 
 import { Header } from 'ui';
 import { usePageTitle } from 'hooks';
 import { AppRoutes } from 'routing/AppRoutes';
+import { useAuth } from 'hooks/useAuth/useAuth';
 
 export const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   usePageTitle();
+  const { isLoggedIn } = useAuth();
 
   return (
     <>

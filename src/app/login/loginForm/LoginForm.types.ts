@@ -1,9 +1,10 @@
+import { LoginPayload } from 'api/actions/auth/auth.types';
+
 export type LoginFields = {
-  email: string;
+  login: string;
   password: string;
-  checkbox: boolean;
 };
 
 export type LoginFormProps = {
-  onSubmit: (data: LoginFields) => void;
+  onSubmit: (data: LoginPayload) => void;
 };
