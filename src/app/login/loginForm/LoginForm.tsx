@@ -37,9 +37,6 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         autoFocus
         label={formatMessage({ id: 'login.email' })}
         rules={emailValidation(inputsMaxLength)}
-        helperText={
-          errors.email?.message ? formatMessage({ id: errors.email?.message }, { maxLength: inputsMaxLength }) : null
-        }
       />
       <InputField
         control={control}
@@ -49,11 +46,6 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         autoComplete="current-password"
         label={formatMessage({ id: 'login.password' })}
         rules={passwordValidation(inputsMaxLength)}
-        helperText={
-          errors.password?.message
-            ? formatMessage({ id: errors.password?.message }, { maxLength: inputsMaxLength })
-            : null
-        }
       />
       <CheckboxField
         control={control}
