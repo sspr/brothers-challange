@@ -7,11 +7,16 @@ import { useAuth } from 'hooks/useAuth/useAuth';
 
 export const App = () => {
   usePageTitle();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, setToken } = useAuth();
 
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header
+        isLoggedIn={isLoggedIn}
+        onLogoutClick={() => {
+          setToken();
+        }}
+      />
       <Container maxWidth="md">
         <AppRoutes />
       </Container>

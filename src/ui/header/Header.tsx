@@ -10,9 +10,8 @@ import { HeaderProps } from './Header.types';
 import { LanguageSwitch } from './languageSwitch/LanguageSwitch';
 import { styles, StyledLink } from './Header.styles';
 import { AppRoute } from 'routing/AppRoute.enum';
-import { AuthStorage } from 'context/auth/authStorage.enum';
 
-export const Header = ({ isLoggedIn }: HeaderProps) => {
+export const Header = ({ isLoggedIn, onLogoutClick }: HeaderProps) => {
   const { locale, setLocale, formatMessage } = useLocale();
 
   const navigate = useNavigate();
@@ -20,9 +19,7 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
   const handleButtonClick = () => {
     if (!isLoggedIn) {
       navigate(AppRoute.home);
-    }
-
-    localStorage.setItem(AuthStorage.TOKEN, '');
+    } else onLogoutClick();
     navigate(AppRoute.login);
   };
 

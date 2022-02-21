@@ -24,6 +24,7 @@ export function useQuery<
         }),
     {
       refetchOnWindowFocus: false,
+      retry: false,
       ...(options ?? {}),
     },
   );

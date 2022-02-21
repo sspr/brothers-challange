@@ -23,5 +23,6 @@
   "login.password.error.required": "Password is required",
   "login.password": "Password",
   "login.checkbox": "Remember me",
+  "login.wrongCredentials": "Couldn't login. Wrong email address or password",
   "pageNotFound.homepage": "Homepage"
 }

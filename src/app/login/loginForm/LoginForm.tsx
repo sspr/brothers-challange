@@ -1,6 +1,6 @@
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { useForm } from 'react-hook-form';
+import { Typography } from '@mui/material';
 
 import { styles } from './LoginForm.styles';
 import { useLocale } from 'hooks';
@@ -8,6 +8,7 @@ import { LoginFields, LoginFormProps } from './LoginForm.types';
 import { InputField } from 'form/fields/inputField/InputField';
 import { emailValidation } from 'form/validators/emailValidation/emailValidation';
 import { passwordValidation } from 'form/validators/passwordValidation/passwordValidation';
+import { Button } from 'ui';
 
 const inputsMaxLength = 30;
 
@@ -16,7 +17,7 @@ const defaultValues = {
   password: '',
 };
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading, isError }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
   const {
@@ -53,9 +54,10 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
             : null
         }
       />
-      <Button type="submit" fullWidth variant="contained" sx={styles.loginButton}>
+      <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
+      {isError && <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>}
     </Box>
   );
 };

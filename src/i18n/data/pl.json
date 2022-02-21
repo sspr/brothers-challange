@@ -23,5 +23,6 @@
   "login.password.error.required": "Hasło jest wymagane",
   "login.password": "Hasło",
   "login.checkbox": "Zapamiętaj mnie",
+  "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.homepage": "Strony głównej"
 }

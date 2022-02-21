@@ -1,5 +1,5 @@
 import { Action } from '../../types';
-import { CheckIsLoggedInPayload, LoginPayload } from './auth.types';
+import { LoginPayload } from './auth.types';
 
 export const loginAction = (values: LoginPayload): Action => ({
   method: 'POST',
@@ -7,8 +7,7 @@ export const loginAction = (values: LoginPayload): Action => ({
   data: values,
 });
 
-export const checkIsLoggedInAction = (header: CheckIsLoggedInPayload): Action => ({
+export const checkIsLoggedInAction = (): Action => ({
   method: 'GET',
   url: '/auth',
-  headers: { Authorization: `Bearer ${header}` },
 });

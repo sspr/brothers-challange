@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { AuthStorage } from 'context/auth/authStorage.enum';
+import { requestAuthCheck } from './interceptors/requestAuthCheck/requestAuthCheck';
 import { requestPascalToCamelCase } from './interceptors/requestPascalToCamelCase/requestPascalToCamelCase';
 
 export const client = axios.create({
@@ -11,5 +13,10 @@ export const client = axios.create({
 
 client.interceptors.response.use(
   (response) => requestPascalToCamelCase(response),
+  (error) => Promise.reject(error),
+);
+
+client.interceptors.request.use(
+  (config) => requestAuthCheck(config, localStorage.getItem(AuthStorage.TOKEN)),
   (error) => Promise.reject(error),
 );
