@@ -18,10 +18,10 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={styles.title}>
-            <StyledLink to={AppRoute.home}>{formatMessage({ id: 'header.title' })}</StyledLink>
+            <StyledLink to={AppRoute.HOME}>{formatMessage({ id: 'header.title' })}</StyledLink>
           </Typography>
           <LanguageSwitch value={locale} onChange={setLocale} />
-          <StyledLink to={AppRoute.login}>
+          <StyledLink to={AppRoute.LOGIN}>
             <Button color="inherit" variant="outlined">
               {isLoggedIn ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
             </Button>

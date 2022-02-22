@@ -23,5 +23,11 @@
   "login.password.error.required": "Password is required",
   "login.password": "Password",
   "login.checkbox": "Remember me",
-  "pageNotFound.homepage": "Homepage"
+  "profile.header": "Profile",
+  "profile.picture": "Profile picture of user",
+  "profile.goals": "Goals",
+  "profile.goals.points": "Points",
+  "profile.goals.pushUps": "Pushups",
+  "pageNotFound.homepage": "Homepage",
+  "title.dashboard": "Dashboard"
 }

@@ -13,8 +13,6 @@ export function InputField<T extends FieldValues>({
 }: InputFieldProps<T>) {
   const { formatMessage } = useLocale();
 
-  console.log(rules);
-
   return (
     <Controller
       name={name}

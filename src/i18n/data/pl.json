@@ -23,5 +23,11 @@
   "login.password.error.required": "Hasło jest wymagane",
   "login.password": "Hasło",
   "login.checkbox": "Zapamiętaj mnie",
-  "pageNotFound.homepage": "Strony głównej"
+  "profile.header": "Profil",
+  "profile.picture": "Zdjęcie profilowe użytkownika",
+  "profile.goals": "Cele",
+  "profile.goals.points": "Punkty",
+  "profile.goals.pushUps": "Pompki",
+  "pageNotFound.homepage": "Strony głównej",
+  "title.dashboard": "Strona główna"
 }
