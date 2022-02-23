@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { Disciplines } from 'api/types';
 import { useLocale } from 'hooks';
-import { Card } from 'ui';
+import { Card, UnitLabel } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
 import { capitalizeFirstLetter } from './RankingTable.utils';
@@ -38,40 +38,22 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
                   <Link to={`/${capitalizeFirstLetter(user)}`}>{capitalizeFirstLetter(user)}</Link>
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].bike}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    km
-                  </Typography>
+                  {stats[user].bike} <UnitLabel discipline="bike" />
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].running}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    km
-                  </Typography>
+                  {stats[user].running} <UnitLabel discipline="running" />
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].swimming}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    km
-                  </Typography>
+                  {stats[user].swimming} <UnitLabel discipline="swimming" />
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].walking}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    km
-                  </Typography>
+                  {stats[user].walking} <UnitLabel discipline="walking" />
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].elevation}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    m
-                  </Typography>
+                  {stats[user].elevation} <UnitLabel discipline="elevation" />
                 </TableCell>
                 <TableCell align="center">
-                  {stats[user].other}{' '}
-                  <Typography variant="caption" sx={styles.units}>
-                    {formatMessage({ id: 'rankingTable.pts' })}
-                  </Typography>
+                  {stats[user].other} <UnitLabel discipline="other" />
                 </TableCell>
                 <TableCell align="center">{stats[user].pushUps}</TableCell>
               </TableRow>

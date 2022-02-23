@@ -28,6 +28,10 @@
   "profile.goals": "Cele",
   "profile.goals.points": "Punkty",
   "profile.goals.pushUps": "Pompki",
+  "profile.discipline": "Dyscyplina",
+  "profile.amount": "Ilość",
+  "profile.points": "Punkty",
+  "profile.total": "Razem",
   "pageNotFound.homepage": "Strony głównej",
   "title.dashboard": "Strona główna"
 }

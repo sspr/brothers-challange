@@ -11,7 +11,7 @@ export const theme = createTheme({
     white: '#FFF',
     red: red[500],
     purple: purple[500],
-    blue: blue[500],
+    blue: blue[900],
     green: green[600],
     grey: blueGrey[500],
     orange: deepOrange[500],

@@ -12,7 +12,7 @@
   "rankingTable.walking": "Walking",
   "rankingTable.elevation": "Elevation",
   "rankingTable.other": "Others",
-  "rankingTable.pushUps": "Push-ups",
+  "rankingTable.pushUps": "Pushups",
   "rankingTable.pts": "pts",
   "dashboard.error": "Something wen wrong. Please try agin later.",
   "login.email": "Email Address",
@@ -28,6 +28,10 @@
   "profile.goals": "Goals",
   "profile.goals.points": "Points",
   "profile.goals.pushUps": "Pushups",
+  "profile.discipline": "Discipline",
+  "profile.amount": "Amount",
+  "profile.points": "Points",
+  "profile.total": "Total",
   "pageNotFound.homepage": "Homepage",
   "title.dashboard": "Dashboard"
 }
