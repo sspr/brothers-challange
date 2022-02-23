@@ -1,16 +1,11 @@
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import { Button, Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 import { styles } from './LoginForm.styles';
 import { useLocale } from 'hooks';
 import { LoginFields, LoginFormProps } from './LoginForm.types';
-import { InputField } from 'form/fields/inputField/InputField';
-import { emailValidation } from 'form/validators/emailValidation/emailValidation';
-import { passwordValidation } from 'form/validators/passwordValidation/passwordValidation';
-import { CheckboxField } from 'form/fields/checkboxField/CheckboxField';
-
-const inputsMaxLength = 30;
+import { InputField, CheckboxField } from 'form/fields';
+import { emailValidation, requiredValidation, maxLengthValidation } from 'form/validators';
 
 const defaultValues = {
   email: '',
@@ -21,11 +16,7 @@ const defaultValues = {
 export const LoginForm = ({ onSubmit }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFields>({ defaultValues });
+  const { control, handleSubmit } = useForm<LoginFields>({ defaultValues });
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>
@@ -36,7 +27,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         autoComplete="email"
         autoFocus
         label={formatMessage({ id: 'login.email' })}
-        rules={emailValidation(inputsMaxLength)}
+        rules={[emailValidation(), requiredValidation(), maxLengthValidation(30)]}
       />
       <InputField
         control={control}
@@ -45,7 +36,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         fullWidth
         autoComplete="current-password"
         label={formatMessage({ id: 'login.password' })}
-        rules={passwordValidation(inputsMaxLength)}
+        rules={[maxLengthValidation(30), requiredValidation()]}
       />
       <CheckboxField
         control={control}

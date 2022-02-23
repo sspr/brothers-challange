@@ -13,14 +13,12 @@ export function InputField<T extends FieldValues>({
 }: InputFieldProps<T>) {
   const { formatMessage } = useLocale();
 
-  console.log(rules);
-
   return (
     <Controller
       name={name}
       control={control}
       defaultValue={defaultValue}
-      rules={rules}
+      rules={Object.fromEntries(rules.map((rule) => [Object.keys(rule)[0], Object.values(rule)[0]]))}
       render={({ field, fieldState }) => (
         <Input
           {...props}

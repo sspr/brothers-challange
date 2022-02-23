@@ -39,4 +39,25 @@ describe('LoginForm component', () => {
 
     expect(await screen.findByText('Email address is not valid')).toBeInTheDocument();
   });
+
+  it('does not render any error message when inputs values are valid', async () => {
+    render(<LoginForm onSubmit={mockLogin} />);
+
+    fireEvent.change(screen.getByLabelText('Email Address'), {
+      target: { value: 'valide@email.adress' },
+    });
+    fireEvent.change(screen.getByLabelText('Password'), {
+      target: { value: 'validPassword' },
+    });
+
+    fireEvent.submit(screen.getByText('Login'));
+
+    expect(
+      await screen.queryByText('Email address is too long. Maximum length of email is 30'),
+    ).not.toBeInTheDocument();
+    expect(await screen.queryByText('Password is too long. Maximum length of password is 30')).not.toBeInTheDocument();
+    expect(await screen.queryByText('Email address is required')).not.toBeInTheDocument();
+    expect(await screen.queryByText('Password is required')).not.toBeInTheDocument();
+    expect(await screen.queryByText('Email address is not valid')).not.toBeInTheDocument();
+  });
 });
