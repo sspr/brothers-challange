@@ -1,11 +1,13 @@
 import { Grid, Typography } from '@mui/material';
 
+import { PLAYER_WORKOUTS_MOCK } from 'api/mock/playerWorckoutsMock';
 import { useLocale } from 'hooks';
 import { Card, Spinner, PageTitle } from 'ui';
 import { Details } from './details/Details';
 import { Goals } from './goal/Goals';
 import { ProfileProps } from './Profile.types';
 import { SummaryTable } from './summaryTable/SummaryTable';
+import { WorkoutsTable } from './workoutsTable/WorkoutsTable';
 
 export const Profile = ({ isLoading, isError, data, goal }: ProfileProps) => {
   const { formatMessage } = useLocale();
@@ -40,6 +42,7 @@ export const Profile = ({ isLoading, isError, data, goal }: ProfileProps) => {
           </main>
         </Grid>
       </Grid>
+      <WorkoutsTable data={PLAYER_WORKOUTS_MOCK[0]} onArrowClick={() => {}} />
     </>
   );
 };
