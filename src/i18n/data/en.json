@@ -16,13 +16,12 @@
   "rankingTable.pts": "pts",
   "dashboard.error": "Something wen wrong. Please try agin later.",
   "login.email": "Email Address",
-  "login.email.error.maxLength": "Email address is too long. Maximum length of email is {maxLength}",
-  "login.email.error.required": "Email address is required",
+  "login.input.error.maxLength": "Maximum length of this field is {maxLength}",
+  "login.input.error.required": "This field is required",
   "login.email.error.pattern": "Email address is not valid",
-  "login.password.error.maxLength": "Password is too long. Maximum length of password is {maxLength}",
-  "login.password.error.required": "Password is required",
   "login.password": "Password",
   "login.checkbox": "Remember me",
   "login.wrongCredentials": "Couldn't login. Wrong email address or password",
-  "pageNotFound.homepage": "Homepage"
+  "pageNotFound.message": "Page was not found. Click link to return back to",
+  "pageNotFound.homepage": "homepage"
 }
