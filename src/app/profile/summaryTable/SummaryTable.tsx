@@ -1,9 +1,4 @@
-import { TableContainer, Typography } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 import { useLocale } from 'hooks';
 import { Card, Chip, UnitLabel } from 'ui';
