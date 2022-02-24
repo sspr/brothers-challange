@@ -1,20 +1,19 @@
 import { Container } from '@mui/material';
 
 import { Header } from 'ui';
-import { usePageTitle } from 'hooks';
+import { usePageTitle, useAuth } from 'hooks';
 import { AppRoutes } from 'routing/AppRoutes';
-import { useAuth } from 'hooks/useAuth/useAuth';
 
 export const App = () => {
   usePageTitle();
-  const { isLoggedIn, setToken } = useAuth();
+  const { isAuthenticated, setToken } = useAuth();
 
   return (
     <>
       <Header
-        isLoggedIn={isLoggedIn}
+        isLoggedIn={isAuthenticated}
         onLogoutClick={() => {
-          setToken();
+          setToken(null);
         }}
       />
       <Container maxWidth="md">

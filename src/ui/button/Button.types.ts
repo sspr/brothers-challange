@@ -1,9 +1,3 @@
-import { SxProps, Theme } from '@mui/material';
-import { ReactNode } from 'react';
+import { ButtonProps as MUIButtonProps } from '@mui/material';
 
-export type ButtonProps = {
-  isLoading: boolean;
-
-  children: ReactNode;
-  sx?: SxProps<Theme> | undefined;
-};
+export type ButtonProps = MUIButtonProps & { isLoading: boolean };

@@ -1,7 +1,7 @@
-import { requestAuthCheck } from './requestAuthCheck';
+import { requestAuthorization } from './requestAuthorization';
 
-describe('requestAuthCheck function', () => {
-  it('adds Authorization prop to config headers', () => {
+describe('requestAuthorization interceptor', () => {
+  it('adds Authorization header to config headers', () => {
     const config = {
       someConfig: 'test config',
       headers: {
@@ -9,7 +9,7 @@ describe('requestAuthCheck function', () => {
       },
     };
 
-    expect(requestAuthCheck(config, 'testToken')).toStrictEqual({
+    expect(requestAuthorization(config, config.headers, 'testToken')).toStrictEqual({
       someConfig: 'test config',
       headers: {
         someConfig: 'test config',

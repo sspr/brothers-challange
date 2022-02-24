@@ -2,27 +2,30 @@ import { useEffect, useState } from 'react';
 
 import { AuthContext } from '../authContext/AuthContext';
 import { AuthContextControllerProps } from './AuthContextController.types';
-import { checkIsLoggedInAction } from 'api/actions/auth/authActions';
+import { createCheckIsLoggedInAction } from 'api/actions/auth/authActions';
 import { useQuery } from 'api/hooks';
 import { AuthStorage } from '../authStorage.enum';
 
 export const AuthContextController = ({ children }: AuthContextControllerProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState<string | null | undefined>(localStorage.getItem(AuthStorage.TOKEN));
 
-  const { data } = useQuery<string>(checkIsLoggedInAction(), { enabled: !!localStorage.getItem(AuthStorage.TOKEN) });
+  const { error } = useQuery<string>(createCheckIsLoggedInAction());
 
   useEffect(() => {
-    setIsLoggedIn(!!data);
-  }, [data]);
+    if (error) {
+      setToken(null);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    token ? localStorage.setItem(AuthStorage.TOKEN, token) : localStorage.setItem(AuthStorage.TOKEN, '');
+  }, [token]);
 
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn,
-        setToken: (token?: string) => {
-          setIsLoggedIn((prevState) => !prevState);
-          token ? localStorage.setItem(AuthStorage.TOKEN, token) : localStorage.setItem(AuthStorage.TOKEN, '');
-        },
+        isAuthenticated: !!token,
+        setToken,
       }}
     >
       {children}

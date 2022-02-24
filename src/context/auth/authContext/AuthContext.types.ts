@@ -1,4 +1,4 @@
 export type AuthContextValuesTypes = {
-  isLoggedIn: boolean;
-  setToken: (token?: string) => void;
+  isAuthenticated: boolean;
+  setToken: (token: string | null) => void;
 };

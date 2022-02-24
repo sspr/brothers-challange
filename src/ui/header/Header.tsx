@@ -1,8 +1,4 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { AppBar, Box, Toolbar, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { useLocale } from 'hooks';
@@ -17,10 +13,7 @@ export const Header = ({ isLoggedIn, onLogoutClick }: HeaderProps) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    if (!isLoggedIn) {
-      navigate(AppRoute.home);
-    } else onLogoutClick();
-    navigate(AppRoute.login);
+    !isLoggedIn ? navigate(AppRoute.login) : onLogoutClick();
   };
 
   return (
