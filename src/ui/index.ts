@@ -5,3 +5,5 @@ export * from './input/Input';
 export * from './checkbox/Checkbox';
 export * from './pageNotFound/PageNotFound';
 export * from './title/Title';
+export * from './button/Button';
+export * from './authenticated/Authenticated';

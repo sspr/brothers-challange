@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-import { requestPascalToCamelCase } from './interceptors/requestPascalToCamelCase/requestPascalToCamelCase';
+import { AuthStorage } from 'context/auth/authStorage.enum';
+import { requestAuthorization } from './interceptors/requestAuthorization/requestAuthorization';
+import { responsePascalToCamelCase } from './interceptors/responsePascalToCamelCase/responsePascalToCamelCase';
 
 export const client = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -10,6 +12,11 @@ export const client = axios.create({
 });
 
 client.interceptors.response.use(
-  (response) => requestPascalToCamelCase(response),
+  (response) => responsePascalToCamelCase(response),
+  (error) => Promise.reject(error),
+);
+
+client.interceptors.request.use(
+  (config) => requestAuthorization(config, config.headers, localStorage.getItem(AuthStorage.TOKEN)),
   (error) => Promise.reject(error),
 );

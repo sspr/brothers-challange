@@ -1,42 +1,34 @@
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { Typography } from '@mui/material';
 
 import { styles } from './LoginForm.styles';
 import { useLocale } from 'hooks';
 import { LoginFields, LoginFormProps } from './LoginForm.types';
-import { InputField } from 'form/fields/inputField/InputField';
-import { emailValidation } from 'form/validators/emailValidation/emailValidation';
-import { passwordValidation } from 'form/validators/passwordValidation/passwordValidation';
-import { CheckboxField } from 'form/fields/checkboxField/CheckboxField';
-
-const inputsMaxLength = 30;
+import { InputField, CheckboxField } from 'form/fields';
+import { emailValidation, requiredValidation, maxLengthValidation } from 'form/validators';
+import { Button } from 'ui';
 
 const defaultValues = {
-  email: '',
+  login: '',
   password: '',
-  checkbox: false,
 };
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading, isError }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFields>({ defaultValues });
+  const { control, handleSubmit } = useForm<LoginFields>({ defaultValues });
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>
       <InputField
         control={control}
-        name="email"
+        name="login"
         fullWidth
         autoComplete="email"
         autoFocus
         label={formatMessage({ id: 'login.email' })}
-        rules={emailValidation(inputsMaxLength)}
+        rules={[emailValidation(), requiredValidation(), maxLengthValidation(30)]}
       />
       <InputField
         control={control}
@@ -45,17 +37,12 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         fullWidth
         autoComplete="current-password"
         label={formatMessage({ id: 'login.password' })}
-        rules={passwordValidation(inputsMaxLength)}
+        rules={[maxLengthValidation(30), requiredValidation()]}
       />
-      <CheckboxField
-        control={control}
-        name="checkbox"
-        value="remember"
-        label={formatMessage({ id: 'login.checkbox' })}
-      />
-      <Button type="submit" fullWidth variant="contained" sx={styles.loginButton}>
+      <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
+      {isError && <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>}
     </Box>
   );
 };

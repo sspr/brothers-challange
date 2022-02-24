@@ -20,10 +20,14 @@ export function useQuery<
         .request<TQueryFnData>(action)
         .then(({ data }) => data)
         .catch((error) => {
+          if (error.response.status === 401) {
+            throw new Error(`You are not logged in`);
+          }
           throw new Error(`Something went wrong: ${error}`);
         }),
     {
       refetchOnWindowFocus: false,
+      retry: false,
       ...(options ?? {}),
     },
   );

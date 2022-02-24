@@ -1,18 +1,21 @@
-import { useState } from 'react';
 import { Container } from '@mui/material';
 
 import { Header } from 'ui';
-import { usePageTitle } from 'hooks';
+import { usePageTitle, useAuth } from 'hooks';
 import { AppRoutes } from 'routing/AppRoutes';
 
 export const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   usePageTitle();
+  const { isAuthenticated, setToken } = useAuth();
 
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header
+        isLoggedIn={isAuthenticated}
+        onLogoutClick={() => {
+          setToken(null);
+        }}
+      />
       <Container maxWidth="md">
         <AppRoutes />
       </Container>
