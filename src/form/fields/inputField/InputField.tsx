@@ -18,7 +18,7 @@ export function InputField<T extends FieldValues>({
       name={name}
       control={control}
       defaultValue={defaultValue}
-      rules={rules}
+      rules={Object.fromEntries(rules.map((rule) => [Object.keys(rule)[0], Object.values(rule)[0]]))}
       render={({ field, fieldState }) => (
         <Input
           {...props}

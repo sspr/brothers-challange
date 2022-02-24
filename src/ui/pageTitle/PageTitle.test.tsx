@@ -1,10 +1,10 @@
 import { theme } from 'assets/styles/theme';
 import { render, screen } from 'tests';
-import { Title } from 'ui';
+import { PageTitle } from 'ui';
 
-describe('Title component', () => {
+describe('PageTitle component', () => {
   it('renders page title and breadcrumbs correctly', () => {
-    render(<Title title="Profile - John" />);
+    render(<PageTitle title="Profile - John" />);
 
     expect(screen.getAllByText('Profile - John')).toHaveLength(2);
     expect(screen.getByText('Dashboard')).toBeInTheDocument();

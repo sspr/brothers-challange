@@ -1,33 +1,47 @@
-import Avatar from '@mui/material/Avatar';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
+import { Avatar, CssBaseline, Box, Typography, Container } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
+import { useLocale, useAuth } from 'hooks';
+import { AppRoute } from 'routing/AppRoute.enum';
 import { styles } from './Login.styles';
-import { useLocale } from 'hooks';
 import { LoginForm } from './loginForm/LoginForm';
+import { LoginProps } from './Login.types';
+import { Authenticated } from 'ui';
 
-export const Login = () => {
+export const Login = ({ mutate, data, isLoading, isError }: LoginProps) => {
   const { formatMessage } = useLocale();
+  const { isAuthenticated, setToken } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data) {
+      setToken(String(data));
+      navigate(AppRoute.HOME);
+    }
+  }, [data]);
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box sx={styles.wrapper}>
-        <Avatar sx={styles.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          {formatMessage({ id: 'header.login' })}
-        </Typography>
-        <LoginForm
-          onSubmit={(data) => {
-            console.log(data);
-          }}
-        />
-      </Box>
-    </Container>
+    <Authenticated shouldAuthenticate={isAuthenticated}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box sx={styles.wrapper}>
+          <Avatar sx={styles.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            {formatMessage({ id: 'header.login' })}
+          </Typography>
+          <LoginForm
+            onSubmit={(data) => {
+              mutate(data);
+            }}
+            isLoading={isLoading}
+            isError={isError}
+          />
+        </Box>
+      </Container>
+    </Authenticated>
   );
 };

@@ -1,9 +1,10 @@
 export type LoginFields = {
-  email: string;
+  login: string;
   password: string;
-  checkbox: boolean;
 };
 
 export type LoginFormProps = {
   onSubmit: (data: LoginFields) => void;
+  isLoading: boolean;
+  isError: boolean;
 };

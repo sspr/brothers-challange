@@ -4,16 +4,18 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 import { useLocale } from 'hooks';
 import { Card } from 'ui';
-import { GoalProps } from './Goal.types';
-import { styles } from './Goal.styles';
+import { GoalsProps } from './Goals.types';
+import { styles } from './Goals.styles';
 
-export const Goal = ({ points, pushUps }: GoalProps) => {
+export const Goals = ({ points, pushUps }: GoalsProps) => {
   const { formatMessage, formatNumber } = useLocale();
 
   return (
     <Card>
-      <Typography sx={styles.title}>{formatMessage({ id: 'profile.goals' })}</Typography>
-      <Typography variant="body2">
+      <Typography variant="h6" sx={styles.title}>
+        {formatMessage({ id: 'profile.goals' })}
+      </Typography>
+      <Typography sx={styles.goal} variant="body2">
         <StarIcon sx={styles.icon} />
         {`${formatMessage({ id: 'profile.goals.points' })}: ${formatNumber(points)}`}
       </Typography>

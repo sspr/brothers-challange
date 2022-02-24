@@ -1,6 +1,6 @@
-import { requestPascalToCamelCase } from './requestPascalToCamelCase';
+import { responsePascalToCamelCase } from './responsePascalToCamelCase';
 
-describe('requestPascalToCamelCase function', () => {
+describe('responsePascalToCamelCase interceptor', () => {
   it('changes object keys notation from pascal ', () => {
     const obj = {
       A_a_: 'I love pizza',
@@ -14,7 +14,7 @@ describe('requestPascalToCamelCase function', () => {
       },
     };
 
-    expect(requestPascalToCamelCase(obj)).toStrictEqual({
+    expect(responsePascalToCamelCase(obj)).toStrictEqual({
       aA: 'I love pizza',
       bB: 'I love pizza',
       cC: {

@@ -1,4 +1,4 @@
-export type GoalProps = {
+export type GoalsProps = {
   points: number;
   pushUps: number;
 };

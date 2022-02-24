@@ -5,14 +5,14 @@ import { Header } from './Header';
 
 describe('Header component', () => {
   it('renders page title and login button correctly', () => {
-    render(<Header isLoggedIn={false} />, { locale: AppLocale.en });
+    render(<Header onLogoutClick={() => {}} isLoggedIn={false} />, { locale: AppLocale.en });
 
     expect(screen.getByText(translations.en['header.title'])).toBeInTheDocument();
     expect(screen.getByText(translations.en['header.login'])).toBeInTheDocument();
   });
 
   it('renders language switch correctly', () => {
-    render(<Header isLoggedIn={false} />, { locale: AppLocale.en });
+    render(<Header onLogoutClick={() => {}} isLoggedIn={false} />, { locale: AppLocale.en });
 
     expect(screen.getByText('EN')).toBeInTheDocument();
 
@@ -23,7 +23,7 @@ describe('Header component', () => {
   });
 
   it('renders login button correctly, when logged in', () => {
-    render(<Header isLoggedIn={true} />, { locale: AppLocale.en });
+    render(<Header onLogoutClick={() => {}} isLoggedIn={true} />, { locale: AppLocale.en });
 
     expect(screen.getByText(translations.en['header.logout'])).toBeInTheDocument();
   });

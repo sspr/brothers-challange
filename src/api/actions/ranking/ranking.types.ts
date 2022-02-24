@@ -16,17 +16,17 @@ export type Player = {
 
 export type Discipline = 'bike' | 'running' | 'swimming' | 'walking' | 'elevation' | 'other' | 'pushUps';
 
-export type Stats = Record<string, Record<Discipline, number>>;
+export type Stats = Record<Discipline, number>;
 
 export type RankingResponse = {
   goal: number;
   players: Player[];
-  stats: Stats;
+  stats: Record<string, Stats>;
 };
 
 export type PlayerResponse = {
   name: string;
   avatar: string;
   score: string;
-  stats: Record<Discipline, number>;
+  stats: Stats;
 };

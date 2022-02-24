@@ -7,18 +7,21 @@ import { theme } from 'assets/styles/theme';
 import { globalStyles } from 'assets/styles/globalStyles';
 import { LocaleContextController } from 'context/locale/localeContextController/LocaleContextController';
 import { AppProvidersProps } from './AppProviders.types';
+import { AuthContextController } from 'context/auth/authContextController/AuthContextController';
 
 export const AppProviders = ({ children }: AppProvidersProps) => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles styles={globalStyles} />
-        <Router>
-          <LocaleContextController>{children}</LocaleContextController>
-        </Router>
-      </ThemeProvider>
+      <AuthContextController>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles styles={globalStyles} />
+          <Router>
+            <LocaleContextController>{children}</LocaleContextController>
+          </Router>
+        </ThemeProvider>
+      </AuthContextController>
     </QueryClientProvider>
   );
 };

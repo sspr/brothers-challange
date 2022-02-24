@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { useLocale } from 'hooks';
 import { AppRoute } from 'routing/AppRoute.enum';
-import { styles } from './Title.styles';
-import { TitleProps } from './Title.types';
+import { styles } from './PageTitle.styles';
+import { PageTitleProps } from './PageTitle.types';
 
-export const Title = ({ title }: TitleProps) => {
+export const PageTitle = ({ title }: PageTitleProps) => {
   const { formatMessage } = useLocale();
 
   return (

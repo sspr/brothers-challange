@@ -1,16 +1,18 @@
-export const PLAYER_MOCK = [
+import { PlayerResponse } from 'api/types';
+
+export const PLAYER_MOCK: PlayerResponse[] = [
   {
     name: 'Marcin',
     avatar: 'https://picsum.photos/640/480?random=4946',
     score: '349,82',
     stats: {
-      bike: 515,
-      running: 62.1,
-      swimming: 12,
-      walking: 27.1,
-      elevation: 865,
-      other: 80.1,
-      pushUps: 380,
+      bike: 0,
+      running: 192.6,
+      swimming: 0,
+      walking: 124.8,
+      elevation: 4355,
+      other: 0,
+      pushUps: 510,
     },
   },
   {

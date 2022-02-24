@@ -1,4 +1,4 @@
-export const requestPascalToCamelCase = <TObject>(object: TObject) => {
+export const responsePascalToCamelCase = <TObject>(object: TObject) => {
   const changeStringToCamelCase = (key: string) =>
     key
       .replace(/[^a-z0-9]{1,}./gi, (match) => match.toUpperCase().substring(match.length - 1))
