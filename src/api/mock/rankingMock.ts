@@ -1,6 +1,6 @@
 import { Player, Stats } from 'api/types';
 
-export const STATS_MOCK: Stats = {
+export const STATS_MOCK: Record<string, Stats> = {
   Michał: {
     bike: 10.1,
     running: 142.7,

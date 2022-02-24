@@ -14,9 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path={AppRoute.HOME} element={<DashboardContainer />} />
       <Route path={AppRoute.LOGIN} element={<LoginContainer />} />
-      {[AppRoute.PROFILE1, AppRoute.PROFILE2].map((route) => (
-        <Route key={route} path={encodeURIComponent(route)} element={<ProfileContainer />} />
-      ))}
+      <Route path={`${AppRoute.PROFILE}:name`} element={<ProfileContainer />} />
 
       <Route
         path="*"
