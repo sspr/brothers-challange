@@ -7,9 +7,11 @@ import { useQuery } from 'api/hooks';
 import { AuthStorage } from '../authStorage.enum';
 
 export const AuthContextController = ({ children }: AuthContextControllerProps) => {
-  const [token, setToken] = useState<string | null | undefined>(localStorage.getItem(AuthStorage.TOKEN));
+  const localStorageToken = localStorage.getItem(AuthStorage.TOKEN);
 
-  const { error } = useQuery<string>(createCheckIsLoggedInAction());
+  const [token, setToken] = useState<string | null | undefined>(localStorageToken);
+
+  const { error } = useQuery<string>(createCheckIsLoggedInAction(), { enabled: !token });
 
   useEffect(() => {
     if (error) {
@@ -18,7 +20,9 @@ export const AuthContextController = ({ children }: AuthContextControllerProps) 
   }, [error]);
 
   useEffect(() => {
-    token ? localStorage.setItem(AuthStorage.TOKEN, token) : localStorage.setItem(AuthStorage.TOKEN, '');
+    if (!(localStorageToken === token)) {
+      localStorage.setItem(AuthStorage.TOKEN, token ? token : '');
+    }
   }, [token]);
 
   return (

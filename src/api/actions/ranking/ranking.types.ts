@@ -27,6 +27,6 @@ export type RankingResponse = {
 export type PlayerResponse = {
   name: string;
   avatar: string;
-  score: string;
+  score: number;
   stats: Stats;
 };

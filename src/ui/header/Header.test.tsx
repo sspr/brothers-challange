@@ -1,18 +1,17 @@
 import { render, screen, fireEvent } from 'tests';
 import { translations } from 'i18n/messages';
-import { AppLocale } from 'context/locale/appLocale.enum';
 import { Header } from './Header';
 
 describe('Header component', () => {
   it('renders page title and login button correctly', () => {
-    render(<Header onLogoutClick={() => {}} isLoggedIn={false} />, { locale: AppLocale.en });
+    render(<Header />);
 
     expect(screen.getByText(translations.en['header.title'])).toBeInTheDocument();
     expect(screen.getByText(translations.en['header.login'])).toBeInTheDocument();
   });
 
   it('renders language switch correctly', () => {
-    render(<Header onLogoutClick={() => {}} isLoggedIn={false} />, { locale: AppLocale.en });
+    render(<Header />);
 
     expect(screen.getByText('EN')).toBeInTheDocument();
 
@@ -23,7 +22,7 @@ describe('Header component', () => {
   });
 
   it('renders login button correctly, when logged in', () => {
-    render(<Header onLogoutClick={() => {}} isLoggedIn={true} />, { locale: AppLocale.en });
+    render(<Header />, { isAuthenticated: true });
 
     expect(screen.getByText(translations.en['header.logout'])).toBeInTheDocument();
   });
