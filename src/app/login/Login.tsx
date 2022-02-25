@@ -10,7 +10,7 @@ import { LoginForm } from './loginForm/LoginForm';
 import { LoginProps } from './Login.types';
 import { Authenticated } from 'ui';
 
-export const Login = ({ onLogin, token, isLoading, isError, error }: LoginProps) => {
+export const Login = ({ onLogin, token, isLoading, error }: LoginProps) => {
   const { formatMessage } = useLocale();
   const { isAuthenticated, setToken } = useAuth();
   const navigate = useNavigate();
@@ -38,7 +38,6 @@ export const Login = ({ onLogin, token, isLoading, isError, error }: LoginProps)
               onLogin(data);
             }}
             isLoading={isLoading}
-            isError={isError}
             error={error}
           />
         </Box>

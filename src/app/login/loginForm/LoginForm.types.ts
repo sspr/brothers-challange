@@ -6,6 +6,5 @@ export type LoginFields = {
 export type LoginFormProps = {
   onSubmit: (data: LoginFields) => void;
   isLoading: boolean;
-  isError: boolean;
   error: string;
 };
