@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import { useLocale } from 'hooks';
 import { HeaderProps } from './Header.types';
 import { LanguageSwitch } from './languageSwitch/LanguageSwitch';
-import { styles } from './Header.styles';
+import { styles, StyledLink } from './Header.styles';
+import { AppRoute } from 'routing/AppRoute.enum';
 
 export const Header = ({ isLoggedIn }: HeaderProps) => {
   const { locale, setLocale, formatMessage } = useLocale();
@@ -17,12 +18,14 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={styles.title}>
-            {formatMessage({ id: 'header.title' })}
+            <StyledLink to={AppRoute.home}>{formatMessage({ id: 'header.title' })}</StyledLink>
           </Typography>
           <LanguageSwitch value={locale} onChange={setLocale} />
-          <Button color="inherit" variant="outlined">
-            {isLoggedIn ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
-          </Button>
+          <StyledLink to={AppRoute.login}>
+            <Button color="inherit" variant="outlined">
+              {isLoggedIn ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
+            </Button>
+          </StyledLink>
         </Toolbar>
       </AppBar>
     </Box>

@@ -1,6 +1,7 @@
 import { GlobalStyles } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { theme } from 'assets/styles/theme';
 import { globalStyles } from 'assets/styles/globalStyles';
@@ -14,7 +15,9 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <GlobalStyles styles={globalStyles} />
-        <LocaleContextController>{children}</LocaleContextController>
+        <Router>
+          <LocaleContextController>{children}</LocaleContextController>
+        </Router>
       </ThemeProvider>
     </QueryClientProvider>
   );
