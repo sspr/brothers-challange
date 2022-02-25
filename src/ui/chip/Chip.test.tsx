@@ -7,7 +7,7 @@ describe('Chip component', () => {
     render(<Chip label="bike" />);
 
     expect(screen.getByText('Cycling')).toBeInTheDocument();
-    expect(screen.getByText('Cycling').parentElement).toHaveStyle({ backgroundColor: theme.palette.primary.main });
+    expect(screen.getByText('Cycling').parentElement).toHaveStyle({ backgroundColor: theme.color.yellow });
   });
 
   it('renders chip correctly for running', () => {
@@ -28,14 +28,14 @@ describe('Chip component', () => {
     render(<Chip label="walking" />);
 
     expect(screen.getByText('Walking')).toBeInTheDocument();
-    expect(screen.getByText('Walking').parentElement).toHaveStyle({ backgroundColor: theme.color.grey });
+    expect(screen.getByText('Walking').parentElement).toHaveStyle({ backgroundColor: theme.color.pink });
   });
 
   it('renders chip correctly for elevation', () => {
     render(<Chip label="elevation" />);
 
     expect(screen.getByText('Elevation')).toBeInTheDocument();
-    expect(screen.getByText('Elevation').parentElement).toHaveStyle({ backgroundColor: theme.color.orange });
+    expect(screen.getByText('Elevation').parentElement).toHaveStyle({ backgroundColor: theme.color.cyan });
   });
 
   it('renders chip correctly for others', () => {
@@ -49,6 +49,6 @@ describe('Chip component', () => {
     render(<Chip label="pushUps" />);
 
     expect(screen.getByText('Pushups')).toBeInTheDocument();
-    expect(screen.getByText('Pushups').parentElement).toHaveStyle({ backgroundColor: theme.color.red });
+    expect(screen.getByText('Pushups').parentElement).toHaveStyle({ backgroundColor: theme.color.brown });
   });
 });

@@ -4,24 +4,26 @@ declare module '@mui/material/styles' {
   interface Theme {
     palete: PaletteOptions | undefined;
     color: {
-      white: string;
-      red: string;
       purple: string;
       blue: string;
       green: string;
       grey: string;
-      orange: string;
+      yellow: string;
+      pink: string;
+      cyan: string;
+      brown: string;
     };
   }
   interface ThemeOptions {
     color: {
-      white: string;
-      red: string;
       purple: string;
       blue: string;
       green: string;
       grey: string;
-      orange: string;
+      yellow: string;
+      pink: string;
+      cyan: string;
+      brown: string;
     };
   }
 }

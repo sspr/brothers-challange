@@ -33,5 +33,6 @@
   "title.dashboard": "Dashboard",
   "login.wrongCredentials": "Couldn't login. Wrong email address or password",
   "pageNotFound.message": "Page was not found. Click link to return back to",
-  "pageNotFound.homepage": "homepage"
+  "pageNotFound.homepage": "homepage",
+  "logout.message": "Logged out successfully"
 }

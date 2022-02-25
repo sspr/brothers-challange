@@ -1,12 +1,16 @@
 import { Container } from '@mui/material';
 
-import { Header } from 'ui';
-import { usePageTitle, useAuth } from 'hooks';
+import { Header, Snackbar } from 'ui';
+import { usePageTitle, useAuth, usePrevious, useLocale } from 'hooks';
 import { AppRoutes } from 'routing/AppRoutes';
 
 export const App = () => {
   usePageTitle();
+  const { formatMessage } = useLocale();
   const { isAuthenticated, setToken } = useAuth();
+  const prevIsAuth = usePrevious(isAuthenticated);
+
+  console.log(isAuthenticated, prevIsAuth);
 
   return (
     <>
@@ -19,6 +23,7 @@ export const App = () => {
       <Container maxWidth="md">
         <AppRoutes />
       </Container>
+      <Snackbar text={!isAuthenticated && prevIsAuth ? formatMessage({ id: 'logout.message' }) : undefined} />
     </>
   );
 };

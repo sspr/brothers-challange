@@ -9,3 +9,4 @@ export * from './unitLabel/UnitLabel';
 export * from './pageTitle/PageTitle';
 export * from './button/Button';
 export * from './authenticated/Authenticated';
+export * from './snackbar/Snackbar';

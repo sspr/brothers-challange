@@ -33,5 +33,6 @@
   "title.dashboard": "Strona główna",
   "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.message": "Nie znaleziono strony. Kliknij w link, żeby wrócić do",
-  "pageNotFound.homepage": "strony głównej"
+  "pageNotFound.homepage": "strony głównej",
+  "logout.message": "Wylogowano pomyślnie"
 }
