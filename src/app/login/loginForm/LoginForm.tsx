@@ -1,19 +1,19 @@
-import { Button, Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 import { styles } from './LoginForm.styles';
 import { useLocale } from 'hooks';
 import { LoginFields, LoginFormProps } from './LoginForm.types';
-import { InputField, CheckboxField } from 'form/fields';
+import { InputField } from 'form/fields';
 import { emailValidation, requiredValidation, maxLengthValidation } from 'form/validators';
+import { Button } from 'ui';
 
 const defaultValues = {
-  email: '',
+  login: '',
   password: '',
-  checkbox: false,
 };
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading, error }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
   const { control, handleSubmit } = useForm<LoginFields>({ defaultValues });
@@ -22,7 +22,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>
       <InputField
         control={control}
-        name="email"
+        name="login"
         fullWidth
         autoComplete="email"
         autoFocus
@@ -38,15 +38,15 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         label={formatMessage({ id: 'login.password' })}
         rules={[maxLengthValidation(30), requiredValidation()]}
       />
-      <CheckboxField
-        control={control}
-        name="checkbox"
-        value="remember"
-        label={formatMessage({ id: 'login.checkbox' })}
-      />
-      <Button type="submit" fullWidth variant="contained" sx={styles.loginButton}>
+      <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
+      {error.includes('401') && (
+        <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>
+      )}
+      {error !== '' && !error.includes('401') && (
+        <Typography color="error">{formatMessage({ id: 'error' })}</Typography>
+      )}
     </Box>
   );
 };

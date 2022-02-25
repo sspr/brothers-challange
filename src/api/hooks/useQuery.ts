@@ -20,10 +20,11 @@ export function useQuery<
         .request<TQueryFnData>(action)
         .then(({ data }) => data)
         .catch((error) => {
-          throw new Error(`Something went wrong: ${error}`);
+          throw new Error(error.request.status);
         }),
     {
       refetchOnWindowFocus: false,
+      retry: false,
       ...(options ?? {}),
     },
   );

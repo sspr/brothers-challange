@@ -14,13 +14,14 @@
   "rankingTable.other": "Others",
   "rankingTable.pushUps": "Push-ups",
   "rankingTable.pts": "pts",
-  "dashboard.error": "Something wen wrong. Please try agin later.",
+  "error": "Something wen wrong. Please try agin later.",
   "validation.maxLength": "The given value is too long",
   "validation.required": "This field is required",
   "validation.pattern": "Email address is not valid",
   "login.email": "Email Address",
   "login.password": "Password",
   "login.checkbox": "Remember me",
+  "login.wrongCredentials": "Couldn't login. Wrong email address or password",
   "pageNotFound.message": "Page was not found. Click link to return back to",
   "pageNotFound.homepage": "homepage"
 }

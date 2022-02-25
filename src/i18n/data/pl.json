@@ -14,13 +14,14 @@
   "rankingTable.other": "Inne",
   "rankingTable.pushUps": "Pompki",
   "rankingTable.pts": "pkt",
-  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później.",
+  "error": "Coś poszło nie tak. Prosimy spróbować później.",
   "validation.maxLength": "Wartość w polu jest zbyt długa",
   "validation.required": "To pole jest wymagane",
   "validation.pattern": "Nieprawidłowy adres email",
   "login.email": "Adres email",
   "login.password": "Hasło",
   "login.checkbox": "Zapamiętaj mnie",
+  "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.message": "Nie znaleziono strony. Kliknij w link, żeby wrócić do",
   "pageNotFound.homepage": "strony głównej"
 }
