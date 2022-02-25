@@ -17,6 +17,6 @@ client.interceptors.response.use(
 );
 
 client.interceptors.request.use(
-  (config) => requestAuthorization(config, config.headers, localStorage.getItem(AuthStorage.TOKEN)),
+  (config) => requestAuthorization(config, localStorage.getItem(AuthStorage.TOKEN)),
   (error) => Promise.reject(error),
 );

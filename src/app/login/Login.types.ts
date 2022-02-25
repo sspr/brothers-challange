@@ -1,8 +1,9 @@
-import { UseMutationResult } from 'react-query';
+import { LoginFields } from './loginForm/LoginForm.types';
 
-import { LoginPayload } from 'api/types';
-
-export type LoginProps = Pick<
-  UseMutationResult<unknown, unknown, LoginPayload, unknown>,
-  'mutate' | 'data' | 'isLoading' | 'isError'
->;
+export type LoginProps = {
+  onLogin: (data: LoginFields) => void;
+  token: string | undefined;
+  isLoading: boolean;
+  isError: boolean;
+  error: string;
+};
