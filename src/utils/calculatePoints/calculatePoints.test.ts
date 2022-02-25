@@ -1,7 +1,7 @@
-import { Discipline } from 'api/types';
-import { calcPoints } from './calcPoints';
+import { entries } from 'utils/entries/entries';
+import { calculatePoints } from './calculatePoints';
 
-describe('calcPoints function', () => {
+describe('calculatePoints function', () => {
   it('converts activities values to points properly', () => {
     const activities = {
       bike: 3000,
@@ -11,12 +11,9 @@ describe('calcPoints function', () => {
       elevation: 3000,
       other: 3000,
       pushUps: 3000,
-      default: 3000,
     };
 
-    const points = Object.fromEntries(
-      Object.keys(activities).map((key) => [key, calcPoints(activities[key as Discipline], key)]),
-    );
+    const points = Object.fromEntries(entries(activities).map(([key]) => [key, calculatePoints(activities[key], key)]));
 
     expect(points).toStrictEqual({
       bike: 1000,
@@ -26,7 +23,6 @@ describe('calcPoints function', () => {
       elevation: 30,
       other: 3000,
       pushUps: 0,
-      default: 3000,
     });
   });
 });

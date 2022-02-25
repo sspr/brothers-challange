@@ -25,7 +25,7 @@ describe('UnitLabel component', () => {
   });
 
   it('renders unit label correctly for any', () => {
-    render(<UnitLabel discipline="any" />);
+    render(<UnitLabel discipline="bike" />);
 
     expect(screen.getByText('km')).toBeInTheDocument();
   });

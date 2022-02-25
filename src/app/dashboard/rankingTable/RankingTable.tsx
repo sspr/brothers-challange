@@ -1,7 +1,7 @@
 import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { Disciplines } from 'api/types';
+import { Discipline } from 'api/types';
 import { useLocale } from 'hooks';
 import { Card, UnitLabel } from 'ui';
 import { styles } from './RankingTable.styles';
@@ -19,7 +19,7 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              {Object.values(Disciplines).map((discipline) => (
+              {Object.values(Discipline).map((discipline) => (
                 <TableCell key={discipline} align="center">
                   {formatMessage({ id: `rankingTable.${discipline}` })}
                 </TableCell>

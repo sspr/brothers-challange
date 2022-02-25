@@ -1,4 +1,4 @@
-import { Disciplines } from 'api/actions/ranking/ranking.types';
+import { Discipline } from 'api/actions/ranking/ranking.types';
 import { translations } from 'i18n/messages';
 import { render, screen } from 'tests';
 import { STATS_MOCK } from 'api/mock/rankingMock';
@@ -7,7 +7,7 @@ import { RankingTable } from './RankingTable';
 describe('RankingTable component', () => {
   it('renders ranking table correctly', () => {
     render(<RankingTable stats={STATS_MOCK} />);
-    Object.values(Disciplines).forEach((discipline) => {
+    Object.values(Discipline).forEach((discipline) => {
       expect(screen.getByText(translations.en[`rankingTable.${discipline}`])).toBeInTheDocument();
       expect(screen.getByText(translations.en[`rankingTable.${discipline}`])).toHaveStyle({ fontWeight: 500 });
     });
