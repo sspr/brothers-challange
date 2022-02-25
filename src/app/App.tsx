@@ -7,19 +7,12 @@ import { AppRoutes } from 'routing/AppRoutes';
 export const App = () => {
   usePageTitle();
   const { formatMessage } = useLocale();
-  const { isAuthenticated, setToken } = useAuth();
+  const { isAuthenticated } = useAuth();
   const prevIsAuth = usePrevious(isAuthenticated);
-
-  console.log(isAuthenticated, prevIsAuth);
 
   return (
     <>
-      <Header
-        isLoggedIn={isAuthenticated}
-        onLogoutClick={() => {
-          setToken(null);
-        }}
-      />
+      <Header />
       <Container maxWidth="md">
         <AppRoutes />
       </Container>

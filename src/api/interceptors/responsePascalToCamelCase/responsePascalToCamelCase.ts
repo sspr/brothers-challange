@@ -1,9 +1,8 @@
 export const responsePascalToCamelCase = <TObject>(object: TObject) => {
   const changeStringToCamelCase = (key: string) =>
     key
-      .replace(/[^a-z0-9]{1,}./gi, (match) => match.toUpperCase().substring(match.length - 1))
-      .replace(/^.{1}/, (match) => match.toLowerCase())
-      .replace(/[^a-z0-9]$/i, '');
+      .replace(/[^a-z0-9ąęóśżźćńł]{1,}./gi, (match) => match.toUpperCase().substring(match.length - 1))
+      .replace(/[^a-z0-9ąęóśżźćńł]$/i, '');
 
   const keysToCamelCase = <TInput>(input: TInput): unknown => {
     if (input && typeof input === 'object' && !Array.isArray(input)) {

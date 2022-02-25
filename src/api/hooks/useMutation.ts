@@ -9,10 +9,7 @@ export function useMutation<TBody = unknown, TData = unknown>(createAction: (bod
       .request<TData>(createAction(data))
       .then(({ data }) => data)
       .catch((error) => {
-        if (error.response.status === 401) {
-          throw new Error(`Wrong email address or password`);
-        }
-        throw new Error(`Something went wrong: ${error}`);
+        throw new Error(error.request.status);
       }),
   );
 }

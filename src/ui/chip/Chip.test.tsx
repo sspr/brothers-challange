@@ -45,10 +45,10 @@ describe('Chip component', () => {
     expect(screen.getByText('Others').parentElement).toHaveStyle({ backgroundColor: theme.color.purple });
   });
 
-  it('renders chip correctly for pushups', () => {
+  it('renders chip correctly for push ups', () => {
     render(<Chip label="pushUps" />);
 
-    expect(screen.getByText('Pushups')).toBeInTheDocument();
-    expect(screen.getByText('Pushups').parentElement).toHaveStyle({ backgroundColor: theme.color.brown });
+    expect(screen.getByText('Push ups')).toBeInTheDocument();
+    expect(screen.getByText('Push ups').parentElement).toHaveStyle({ backgroundColor: theme.color.brown });
   });
 });

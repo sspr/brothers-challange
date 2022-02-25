@@ -21,7 +21,7 @@ export const Dashboard = ({ isLoading, isError, data }: DashboardProps) => {
   if (isError || !data) {
     return (
       <Card>
-        <Typography align="center">{formatMessage({ id: 'dashboard.error' })}</Typography>
+        <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
       </Card>
     );
   }

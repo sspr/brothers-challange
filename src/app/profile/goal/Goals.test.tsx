@@ -7,6 +7,6 @@ describe('Goal component', () => {
 
     expect(screen.getByText('Goals')).toBeInTheDocument();
     expect(screen.getByText('Points: 2,222')).toBeInTheDocument();
-    expect(screen.getByText('Pushups: 10,000')).toBeInTheDocument();
+    expect(screen.getByText('Push ups: 10,000')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,6 @@
-export const requestAuthorization = <TConfig>(config: TConfig, headers: TConfig, bearer: string | null) => ({
+import { AxiosRequestConfig } from 'axios';
+
+export const requestAuthorization = (config: AxiosRequestConfig, bearer: string | null) => ({
   ...config,
-  headers: { ...headers, Authorization: `Bearer ${bearer}` },
+  headers: { ...config.headers, Authorization: `Bearer ${bearer}` },
 });

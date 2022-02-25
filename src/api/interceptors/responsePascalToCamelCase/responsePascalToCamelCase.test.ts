@@ -10,18 +10,20 @@ describe('responsePascalToCamelCase interceptor', () => {
         _e___e: {
           Ff: 'I love pizza',
           g_g: [{ H_h: 'I love pizza' }],
+          ąśżźć_ńłóę: 'I love pizza',
         },
       },
     };
 
     expect(responsePascalToCamelCase(obj)).toStrictEqual({
-      aA: 'I love pizza',
+      AA: 'I love pizza',
       bB: 'I love pizza',
       cC: {
-        dD: 'I love pizza',
-        eE: {
-          ff: 'I love pizza',
-          gG: [{ hH: 'I love pizza' }],
+        DD: 'I love pizza',
+        EE: {
+          Ff: 'I love pizza',
+          gG: [{ HH: 'I love pizza' }],
+          ąśżźćŃłóę: 'I love pizza',
         },
       },
     });
