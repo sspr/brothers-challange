@@ -4,7 +4,7 @@ export const PLAYER_MOCK: PlayerResponse[] = [
   {
     name: 'Marcin',
     avatar: 'https://picsum.photos/640/480?random=4946',
-    score: '360,95',
+    score: 360.95,
     stats: {
       bike: 0,
       running: 192.6,
@@ -18,7 +18,7 @@ export const PLAYER_MOCK: PlayerResponse[] = [
   {
     name: 'Michał',
     avatar: 'https://picsum.photos/640/480?random=4946',
-    score: '360,95',
+    score: 360.95,
     stats: {
       bike: 0,
       running: 192.6,

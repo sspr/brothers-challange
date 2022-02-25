@@ -14,7 +14,6 @@ describe('RankingTable component', () => {
 
     Object.keys(STATS_MOCK).forEach((name) => {
       expect(screen.getByText(name, { exact: false })).toBeInTheDocument();
-      expect(screen.getByText(name)).toHaveStyle({ fontWeight: 500 });
       expect(screen.getByText(`${STATS_MOCK[name].bike}`, { exact: false }).parentNode).toHaveTextContent(
         `${STATS_MOCK[name].bike} km`,
       );

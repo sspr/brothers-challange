@@ -6,7 +6,6 @@ import { useLocale } from 'hooks';
 import { Card } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
-import { capitalizeFirstLetter } from './RankingTable.utils';
 import { AppRoute } from 'routing/AppRoute.enum';
 
 export const RankingTable = ({ stats }: RankingTableProps) => {
@@ -31,7 +30,7 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
             {Object.keys(stats).map((user) => (
               <TableRow key={user}>
                 <TableCell sx={styles.header}>
-                  <Link to={`${AppRoute.PROFILE}${capitalizeFirstLetter(user)}`}>{capitalizeFirstLetter(user)}</Link>
+                  <Link to={`${AppRoute.PROFILE}/${user}`}>{user}</Link>
                 </TableCell>
                 <TableCell align="center">
                   {stats[user].bike}{' '}
