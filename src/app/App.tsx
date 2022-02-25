@@ -10,12 +10,7 @@ export const App = () => {
 
   return (
     <>
-      <Header
-        isLoggedIn={isAuthenticated}
-        onLogoutClick={() => {
-          setToken(null);
-        }}
-      />
+      <Header isLoggedIn={isAuthenticated} onLogoutClick={setToken} />
       <Container maxWidth="md">
         <AppRoutes />
       </Container>

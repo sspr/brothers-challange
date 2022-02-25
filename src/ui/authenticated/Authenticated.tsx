@@ -9,12 +9,12 @@ export const Authenticated = ({ children, shouldAuthenticate }: AuthenticatedPro
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!shouldAuthenticate) {
+    if (shouldAuthenticate) {
       navigate(AppRoute.home);
     }
   }, [shouldAuthenticate]);
 
-  if (!shouldAuthenticate) {
+  if (shouldAuthenticate) {
     return (
       <Card>
         <Spinner />

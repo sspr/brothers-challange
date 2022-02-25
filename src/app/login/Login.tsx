@@ -10,17 +10,17 @@ import { LoginForm } from './loginForm/LoginForm';
 import { LoginProps } from './Login.types';
 import { Authenticated } from 'ui';
 
-export const Login = ({ mutate, data, isLoading, isError }: LoginProps) => {
+export const Login = ({ onLogin, token, isLoading, isError, error }: LoginProps) => {
   const { formatMessage } = useLocale();
   const { isAuthenticated, setToken } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data) {
-      setToken(String(data));
+    if (token) {
+      setToken(token);
       navigate(AppRoute.home);
     }
-  }, [data]);
+  }, [token]);
 
   return (
     <Authenticated shouldAuthenticate={isAuthenticated}>
@@ -35,10 +35,11 @@ export const Login = ({ mutate, data, isLoading, isError }: LoginProps) => {
           </Typography>
           <LoginForm
             onSubmit={(data) => {
-              mutate(data);
+              onLogin(data);
             }}
             isLoading={isLoading}
             isError={isError}
+            error={error}
           />
         </Box>
       </Container>

@@ -1,4 +1,4 @@
 export type HeaderProps = {
   isLoggedIn: boolean;
-  onLogoutClick: VoidFunction;
+  onLogoutClick: (token: null) => void;
 };

@@ -13,7 +13,11 @@ export const Header = ({ isLoggedIn, onLogoutClick }: HeaderProps) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    !isLoggedIn ? navigate(AppRoute.login) : onLogoutClick();
+    if (!isLoggedIn) {
+      navigate(AppRoute.login);
+    } else {
+      onLogoutClick(null);
+    }
   };
 
   return (

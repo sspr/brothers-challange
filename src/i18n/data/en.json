@@ -14,7 +14,7 @@
   "rankingTable.other": "Others",
   "rankingTable.pushUps": "Push-ups",
   "rankingTable.pts": "pts",
-  "dashboard.error": "Something wen wrong. Please try agin later.",
+  "error": "Something wen wrong. Please try agin later.",
   "login.email": "Email Address",
   "validation.maxLength": "The given value is too long",
   "validation.required": "This field is required",
