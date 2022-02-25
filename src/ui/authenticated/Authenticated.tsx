@@ -10,7 +10,7 @@ export const Authenticated = ({ children, shouldAuthenticate }: AuthenticatedPro
 
   useEffect(() => {
     if (shouldAuthenticate) {
-      navigate(AppRoute.home);
+      navigate(AppRoute.HOME);
     }
   }, [shouldAuthenticate]);
 

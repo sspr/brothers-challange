@@ -1,22 +1,19 @@
-import { TableContainer, Typography } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { Disciplines } from 'api/types';
 import { useLocale } from 'hooks';
 import { Card } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
+import { AppRoute } from 'routing/AppRoute.enum';
 
 export const RankingTable = ({ stats }: RankingTableProps) => {
   const { formatMessage } = useLocale();
 
   return (
     <Card>
-      <Typography>{formatMessage({ id: 'rankingTable.summary' })}</Typography>
+      <Typography variant="h6">{formatMessage({ id: 'rankingTable.summary' })}</Typography>
       <TableContainer>
         <Table aria-label="simple table" sx={styles.table}>
           <TableHead>
@@ -32,7 +29,9 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
           <TableBody>
             {Object.keys(stats).map((user) => (
               <TableRow key={user}>
-                <TableCell sx={styles.header}>{user}</TableCell>
+                <TableCell sx={styles.header}>
+                  <Link to={`${AppRoute.PROFILE}/${user}`}>{user}</Link>
+                </TableCell>
                 <TableCell align="center">
                   {stats[user].bike}{' '}
                   <Typography variant="caption" sx={styles.units}>

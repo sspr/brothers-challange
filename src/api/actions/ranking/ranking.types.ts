@@ -14,21 +14,25 @@ export type Player = {
   score: number;
 };
 
-export type Stats = Record<
-  string,
-  {
-    bike: number;
-    elevation: number;
-    other: number;
-    pushUps: number;
-    running: number;
-    swimming: number;
-    walking: number;
-  }
->;
+export type Stats = {
+  bike: number;
+  elevation: number;
+  other: number;
+  pushUps: number;
+  running: number;
+  swimming: number;
+  walking: number;
+};
 
 export type RankingResponse = {
   goal: number;
   players: Player[];
+  stats: Record<string, Stats>;
+};
+
+export type PlayerResponse = {
+  name: string;
+  avatar: string;
+  score: number;
   stats: Stats;
 };

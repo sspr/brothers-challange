@@ -18,7 +18,7 @@ export const Login = ({ onLogin, token, isLoading, error }: LoginProps) => {
   useEffect(() => {
     if (token) {
       setToken(token);
-      navigate(AppRoute.home);
+      navigate(AppRoute.HOME);
     }
   }, [token]);
 

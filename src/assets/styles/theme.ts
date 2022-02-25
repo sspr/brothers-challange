@@ -7,6 +7,11 @@ export const theme = createTheme({
       main: blue[600],
     },
   },
+  typography: {
+    h6: {
+      fontWeight: 400,
+    },
+  },
   color: {
     white: '#FFF',
     red: red[500],
