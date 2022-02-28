@@ -1,3 +1,5 @@
+import { Disciplines } from 'api/types';
+
 export type UnitLabelProps = {
-  discipline: string;
+  discipline: Disciplines;
 };

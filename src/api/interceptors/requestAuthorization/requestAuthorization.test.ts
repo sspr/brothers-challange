@@ -9,7 +9,7 @@ describe('requestAuthorization interceptor', () => {
       },
     };
 
-    expect(requestAuthorization(config, config.headers, 'testToken')).toStrictEqual({
+    expect(requestAuthorization(config, 'testToken')).toStrictEqual({
       someConfig: 'test config',
       headers: {
         someConfig: 'test config',

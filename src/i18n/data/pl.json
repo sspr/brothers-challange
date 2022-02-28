@@ -14,11 +14,11 @@
   "rankingTable.other": "Inne",
   "rankingTable.pushUps": "Pompki",
   "rankingTable.pts": "pkt",
-  "dashboard.error": "Coś poszło nie tak. Prosimy spróbować później.",
+  "error": "Coś poszło nie tak. Prosimy spróbować później.",
   "login.email": "Adres email",
-  "login.input.error.maxLength": "Maksymalna ilość znaków w tym polu to {maxLength}",
-  "login.input.error.required": "To pole jest wymagane",
-  "login.email.error.pattern": "Nieprawidłowy adres email",
+  "validation.maxLength": "Wartość w polu jest zbyt długa",
+  "validation.required": "To pole jest wymagane",
+  "validation.pattern": "Nieprawidłowy adres email",
   "login.password": "Hasło",
   "login.checkbox": "Zapamiętaj mnie",
   "profile.header": "Profil",
@@ -33,5 +33,6 @@
   "title.dashboard": "Strona główna",
   "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.message": "Nie znaleziono strony. Kliknij w link, żeby wrócić do",
-  "pageNotFound.homepage": "strony głównej"
+  "pageNotFound.homepage": "strony głównej",
+  "logout.message": "Wylogowano pomyślnie"
 }

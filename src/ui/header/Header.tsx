@@ -1,19 +1,22 @@
 import { AppBar, Box, Toolbar, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { useLocale } from 'hooks';
-import { HeaderProps } from './Header.types';
+import { useAuth, useLocale } from 'hooks';
 import { LanguageSwitch } from './languageSwitch/LanguageSwitch';
 import { styles, StyledLink } from './Header.styles';
 import { AppRoute } from 'routing/AppRoute.enum';
 
-export const Header = ({ isLoggedIn, onLogoutClick }: HeaderProps) => {
+export const Header = () => {
   const { locale, setLocale, formatMessage } = useLocale();
-
+  const { isAuthenticated, setToken } = useAuth();
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    !isLoggedIn ? navigate(AppRoute.LOGIN) : onLogoutClick();
+    if (!isAuthenticated) {
+      navigate(AppRoute.LOGIN);
+    } else {
+      setToken(null);
+    }
   };
 
   return (
@@ -25,7 +28,7 @@ export const Header = ({ isLoggedIn, onLogoutClick }: HeaderProps) => {
           </Typography>
           <LanguageSwitch value={locale} onChange={setLocale} />
           <Button onClick={handleButtonClick} color="inherit" variant="outlined">
-            {isLoggedIn ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
+            {isAuthenticated ? formatMessage({ id: 'header.logout' }) : formatMessage({ id: 'header.login' })}
           </Button>
         </Toolbar>
       </AppBar>

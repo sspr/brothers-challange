@@ -1,12 +1,11 @@
 import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { Disciplines } from 'api/types';
+import { Discipline } from 'api/types';
 import { useLocale } from 'hooks';
 import { Card, UnitLabel } from 'ui';
 import { styles } from './RankingTable.styles';
 import { RankingTableProps } from './RankingTable.types';
-import { capitalizeFirstLetter } from './RankingTable.utils';
 import { AppRoute } from 'routing/AppRoute.enum';
 
 export const RankingTable = ({ stats }: RankingTableProps) => {
@@ -20,7 +19,7 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              {Object.values(Disciplines).map((discipline) => (
+              {Object.values(Discipline).map((discipline) => (
                 <TableCell key={discipline} align="center">
                   {formatMessage({ id: `rankingTable.${discipline}` })}
                 </TableCell>
@@ -31,7 +30,7 @@ export const RankingTable = ({ stats }: RankingTableProps) => {
             {Object.keys(stats).map((user) => (
               <TableRow key={user}>
                 <TableCell sx={styles.header}>
-                  <Link to={`${AppRoute.PROFILE}${capitalizeFirstLetter(user)}`}>{capitalizeFirstLetter(user)}</Link>
+                  <Link to={`${AppRoute.PROFILE}/${user}`}>{user}</Link>
                 </TableCell>
                 <TableCell align="center">
                   {stats[user].bike} <UnitLabel discipline="bike" />

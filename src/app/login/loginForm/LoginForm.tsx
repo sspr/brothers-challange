@@ -1,11 +1,10 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { Typography } from '@mui/material';
 
 import { styles } from './LoginForm.styles';
 import { useLocale } from 'hooks';
 import { LoginFields, LoginFormProps } from './LoginForm.types';
-import { InputField, CheckboxField } from 'form/fields';
+import { InputField } from 'form/fields';
 import { emailValidation, requiredValidation, maxLengthValidation } from 'form/validators';
 import { Button } from 'ui';
 
@@ -14,7 +13,7 @@ const defaultValues = {
   password: '',
 };
 
-export const LoginForm = ({ onSubmit, isLoading, isError }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading, isError, error }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
   const { control, handleSubmit } = useForm<LoginFields>({ defaultValues });
@@ -42,7 +41,10 @@ export const LoginForm = ({ onSubmit, isLoading, isError }: LoginFormProps) => {
       <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
-      {isError && <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>}
+      {isError && error.includes('401') && (
+        <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>
+      )}
+      {isError && !error.includes('401') && <Typography color="error">{formatMessage({ id: 'error' })}</Typography>}
     </Box>
   );
 };

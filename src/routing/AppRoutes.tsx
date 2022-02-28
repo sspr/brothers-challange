@@ -14,7 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path={AppRoute.HOME} element={<DashboardContainer />} />
       <Route path={AppRoute.LOGIN} element={<LoginContainer />} />
-      <Route path={`${AppRoute.PROFILE}:name`} element={<ProfileContainer />} />
+      <Route path={`${AppRoute.PROFILE}/:name`} element={<ProfileContainer />} />
 
       <Route
         path="*"
