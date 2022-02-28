@@ -12,7 +12,7 @@ export const SummaryTable = ({ data }: SummaryTableProps) => {
 
   return (
     <Card>
-      <Typography>{formatMessage({ id: 'rankingTable.summary' })}</Typography>
+      <Typography variant="h6">{formatMessage({ id: 'rankingTable.summary' })}</Typography>
       <TableContainer>
         <Table aria-label="simple table" sx={styles.table}>
           <TableHead>

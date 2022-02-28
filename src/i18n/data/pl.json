@@ -30,6 +30,7 @@
   "profile.amount": "Ilość",
   "profile.points": "Punkty",
   "profile.total": "Razem",
+  "profile.date": "Data",
   "title.dashboard": "Strona główna",
   "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.message": "Nie znaleziono strony. Kliknij w link, żeby wrócić do",

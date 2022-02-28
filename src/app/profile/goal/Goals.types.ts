@@ -1,4 +1,6 @@
 export type GoalsProps = {
-  points: number;
-  pushUps: number;
+  goals: {
+    points: number;
+    pushUps: number;
+  };
 };

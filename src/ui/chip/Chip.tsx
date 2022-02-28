@@ -4,7 +4,7 @@ import { useLocale } from 'hooks';
 import { styles } from './Chip.styles';
 import { ChipProps } from './Chip.types';
 
-export const Chip = ({ label }: ChipProps) => {
+export const Chip = ({ label, description }: ChipProps) => {
   const { formatMessage } = useLocale();
 
   const backgroundColor = Object.keys(styles.chipColor).includes(label)
@@ -13,7 +13,7 @@ export const Chip = ({ label }: ChipProps) => {
 
   return (
     <MUIChip
-      label={formatMessage({ id: `rankingTable.${label}` })}
+      label={description ? description : formatMessage({ id: `rankingTable.${label}` })}
       size="small"
       sx={{
         ...styles.chip,

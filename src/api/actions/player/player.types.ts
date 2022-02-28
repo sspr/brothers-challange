@@ -1,11 +1,13 @@
-import { Discipline } from '../ranking/ranking.types';
+import { Disciplines } from '../ranking/ranking.types';
+
+export type Workout = {
+  type: Disciplines;
+  value: number;
+  description?: string;
+  elevation?: number;
+};
 
 export type PlayerWorkoutsResponse = {
-  day: string;
-  workouts: {
-    type: Discipline;
-    value: string;
-    description?: string;
-    elevation?: string;
-  }[];
+  day: number;
+  workouts: Workout[];
 }[];
