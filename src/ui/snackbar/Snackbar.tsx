@@ -13,8 +13,6 @@ export const Snackbar = ({ text }: SnackbarProps) => {
     }
   }, [text]);
 
-  console.log(text);
-
   return (
     <MuiSnackbar open={isSnackbarOpen} autoHideDuration={3000} onClose={() => setSnackbarOpen(false)}>
       <Alert color="success" sx={styles}>
