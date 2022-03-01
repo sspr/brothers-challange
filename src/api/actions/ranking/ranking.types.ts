@@ -1,4 +1,4 @@
-export enum Disciplines {
+export enum Discipline {
   BIKE = 'bike',
   RUNNING = 'running',
   SWIMMING = 'swimming',
@@ -8,21 +8,15 @@ export enum Disciplines {
   PUSHUPS = 'pushUps',
 }
 
+export type Disciplines = Exclude<Lowercase<keyof typeof Discipline>, 'pushups'> | 'pushUps';
+
 export type Player = {
   avatar: string;
   name: string;
   score: number;
 };
 
-export type Stats = {
-  bike: number;
-  elevation: number;
-  other: number;
-  pushUps: number;
-  running: number;
-  swimming: number;
-  walking: number;
-};
+export type Stats = Record<Discipline, number>;
 
 export type RankingResponse = {
   goal: number;

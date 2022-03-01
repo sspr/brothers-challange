@@ -5,6 +5,7 @@ import { Card, Spinner, PageTitle } from 'ui';
 import { Details } from './details/Details';
 import { Goals } from './goal/Goals';
 import { ProfileProps } from './Profile.types';
+import { SummaryTable } from './summaryTable/SummaryTable';
 
 export const Profile = ({ isLoading, isError, data, goal }: ProfileProps) => {
   const { formatMessage } = useLocale();
@@ -35,9 +36,7 @@ export const Profile = ({ isLoading, isError, data, goal }: ProfileProps) => {
         </Grid>
         <Grid item xs={12} sm={12} md={8}>
           <main>
-            <Card>
-              <Typography variant="h6">Main</Typography>
-            </Card>
+            <SummaryTable data={data} />
           </main>
         </Grid>
       </Grid>
