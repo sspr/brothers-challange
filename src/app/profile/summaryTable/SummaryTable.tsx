@@ -1,7 +1,7 @@
 import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 import { useLocale } from 'hooks';
-import { Card, Chip, UnitLabel } from 'ui';
+import { Card, DisciplineChip, UnitLabel } from 'ui';
 import { styles } from './SummaryTable.styles';
 import { SummaryTableProps } from './SummaryTable.types';
 import { getObjectEntries, calculatePoints } from 'utils';
@@ -25,7 +25,7 @@ export const SummaryTable = ({ data }: SummaryTableProps) => {
             {getObjectEntries(data.stats).map(([key, value]) => (
               <TableRow key={key}>
                 <TableCell>
-                  <Chip label={key} />
+                  <DisciplineChip label={key} />
                 </TableCell>
                 <TableCell sx={styles.amount}>
                   {`${value} `}

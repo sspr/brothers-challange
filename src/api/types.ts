@@ -5,3 +5,4 @@ export type Action = Required<Pick<AxiosRequestConfig, 'method' | 'url'>> &
 
 export * from './actions/ranking/ranking.types';
 export * from './actions/auth/auth.types';
+export * from './actions/player/player.types';

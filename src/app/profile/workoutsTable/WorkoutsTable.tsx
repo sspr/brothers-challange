@@ -14,17 +14,16 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import { useLocale } from 'hooks';
-import { Card, Chip, UnitLabel } from 'ui';
-import { calculatePoints } from 'utils/calculatePoints/calculatePoints';
+import { Card, DisciplineChip, UnitLabel } from 'ui';
+import { calculatePoints } from 'utils';
 import { styles } from './WorkoutsTable.styles';
 import { WorkoutsTableProps } from './WorkoutsTable.types';
-import { Discipline } from 'api/types';
-import { Workout } from 'api/actions/player/player.types';
+import { Discipline, Workout } from 'api/types';
 
 export const WorkoutsTable = ({ data, monthNumber, onArrowClick }: WorkoutsTableProps) => {
   const { formatMessage, formatDate } = useLocale();
 
-  const date = new Date(2022, monthNumber);
+  const date = new Date(Number(process.env.REACT_APP_YEAR), monthNumber);
 
   const calculatePointsWithElevation = (workout: Workout) =>
     workout?.elevation
@@ -78,7 +77,7 @@ export const WorkoutsTable = ({ data, monthNumber, onArrowClick }: WorkoutsTable
               day.workouts.map((workout) => (
                 <TableRow key={`Day${day.day}${workout.type}`}>
                   <TableCell>
-                    <Chip label={workout.type} description={workout?.description} />
+                    <DisciplineChip label={workout?.description ? workout?.description : workout.type} />
                   </TableCell>
                   <TableCell>
                     {formatDate(date.setDate(day.day), {
