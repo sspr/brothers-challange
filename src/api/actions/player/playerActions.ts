@@ -1,6 +1,11 @@
 import { Action } from '../../types';
 
-export const createGetPlayerWorkoutAction = (monthNumber: number): Action => ({
+export const createGetPlayerDetailsAction = (playerName: string | undefined): Action => ({
   method: 'GET',
-  url: `/player/Marcin/workouts/${monthNumber}`,
+  url: `/player/${playerName}`,
+});
+
+export const createGetPlayerWorkoutsAction = (playerName: string | undefined, monthNumber: number): Action => ({
+  method: 'GET',
+  url: `/player/${playerName}/workouts/${monthNumber}`,
 });

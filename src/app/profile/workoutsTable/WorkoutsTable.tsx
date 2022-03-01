@@ -109,7 +109,7 @@ export const WorkoutsTable = ({ isError, isLoading, data, monthNumber, onArrowCl
                   <TableCell>
                     {workout?.elevation ? workout?.elevation : 0} <UnitLabel discipline={Discipline.ELEVATION} />
                   </TableCell>
-                  <TableCell align="right">{calculatePointsWithElevation(workout)}</TableCell>
+                  <TableCell align="right">{calculatePointsWithElevation(workout).toFixed(2)}</TableCell>
                 </TableRow>
               )),
             )}

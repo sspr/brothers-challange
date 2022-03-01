@@ -4,8 +4,8 @@ import { DashboardContainer } from 'app/dashboard/DashboardContainer';
 import { AppRoute } from './AppRoute.enum';
 import { PageNotFound } from 'ui';
 import { useLocale } from 'hooks';
-import { Profile } from 'app/profile/Profile';
 import { LoginContainer } from 'app/login/LoginContainer';
+import { ProfileContainer } from 'app/profile/ProfileContainer';
 
 export const AppRoutes = () => {
   const { formatMessage } = useLocale();
@@ -14,7 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path={AppRoute.HOME} element={<DashboardContainer />} />
       <Route path={AppRoute.LOGIN} element={<LoginContainer />} />
-      <Route path={`${AppRoute.PROFILE}/:name`} element={<Profile />} />
+      <Route path={`${AppRoute.PROFILE}/:name`} element={<ProfileContainer />} />
 
       <Route
         path="*"
