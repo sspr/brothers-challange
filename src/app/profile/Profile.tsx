@@ -1,8 +1,8 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
 import { useState } from 'react';
 
 import { useLocale } from 'hooks';
-import { Button, Card, PageTitle, Spinner } from 'ui';
+import { Card, PageTitle, Spinner } from 'ui';
 import { GoalsContainer } from './goal/GoalsContainer';
 import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
 import { ProfileProps } from './Profile.types';
@@ -43,6 +43,8 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
             <SummaryTable data={profileDetails} />
           </main>
           <Button
+            fullWidth
+            variant="contained"
             onClick={() => {
               setIsModalOpened(true);
             }}
