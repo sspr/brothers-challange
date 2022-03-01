@@ -9,7 +9,12 @@ export const SnackbarContextController = ({ children }: SnackbarContextControlle
 
   return (
     <SnackbarContext.Provider value={{ showSnackbar: setText }}>
-      <Snackbar text={text} />
+      <Snackbar
+        text={text}
+        onClose={() => {
+          setText(undefined);
+        }}
+      />
       {children}
     </SnackbarContext.Provider>
   );
