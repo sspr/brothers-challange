@@ -1,4 +1,4 @@
-import { entries } from 'utils/entries/entries';
+import { getObjectEntries } from 'utils';
 import { calculatePoints } from './calculatePoints';
 
 describe('calculatePoints function', () => {
@@ -13,7 +13,9 @@ describe('calculatePoints function', () => {
       pushUps: 3000,
     };
 
-    const points = Object.fromEntries(entries(activities).map(([key]) => [key, calculatePoints(activities[key], key)]));
+    const points = Object.fromEntries(
+      getObjectEntries(activities).map(([key]) => [key, calculatePoints(activities[key], key)]),
+    );
 
     expect(points).toStrictEqual({
       bike: 1000,
