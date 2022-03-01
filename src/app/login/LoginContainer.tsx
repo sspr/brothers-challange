@@ -4,7 +4,7 @@ import { LoginPayload } from 'api/types';
 import { Login } from './Login';
 
 export const LoginContainer = () => {
-  const { mutate, data, isLoading, isError, error } = useMutation<LoginPayload, string>(createLoginAction);
+  const { mutate, data, isLoading, error } = useMutation<LoginPayload, string>(createLoginAction);
 
-  return <Login onLogin={mutate} token={data} isLoading={isLoading} isError={isError} error={String(error)} />;
+  return <Login onLogin={mutate} token={data} isLoading={isLoading} error={String(error)} />;
 };
