@@ -19,7 +19,7 @@ export type Player = {
 export type Stats = Record<Discipline, number>;
 
 export type RankingResponse = {
-  goal: number;
+  goals: { score: number; pushUps: number };
   players: Player[];
   stats: Record<string, Stats>;
 };

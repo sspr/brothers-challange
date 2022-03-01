@@ -37,7 +37,7 @@ export const Dashboard = ({ isLoading, isError, data }: DashboardProps) => {
                 name={rank.name}
                 score={rank.score}
                 rank={data.players[0].score !== data.players[1].score ? index + 1 : 1}
-                goal={data.goal}
+                goal={data.goals.score}
               />
             </Grid>
           ))}

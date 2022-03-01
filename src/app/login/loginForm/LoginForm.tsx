@@ -41,10 +41,10 @@ export const LoginForm = ({ onSubmit, isLoading, error }: LoginFormProps) => {
       <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
-      {error.includes('401') && (
+      {error !== 'null' && error.includes('401') && (
         <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>
       )}
-      {error !== '' && !error.includes('401') && (
+      {error !== 'null' && error !== '' && !error.includes('401') && (
         <Typography color="error">{formatMessage({ id: 'error' })}</Typography>
       )}
     </Box>
