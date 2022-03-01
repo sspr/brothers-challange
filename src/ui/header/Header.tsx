@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuth, useLocale } from 'hooks';
+import { useAuth, useLocale, useSnackbar } from 'hooks';
 import { LanguageSwitch } from './languageSwitch/LanguageSwitch';
 import { styles, StyledLink } from './Header.styles';
 import { AppRoute } from 'routing/AppRoute.enum';
@@ -10,12 +10,14 @@ export const Header = () => {
   const { locale, setLocale, formatMessage } = useLocale();
   const { isAuthenticated, setToken } = useAuth();
   const navigate = useNavigate();
+  const { showSnackbar } = useSnackbar();
 
   const handleButtonClick = () => {
     if (!isAuthenticated) {
       navigate(AppRoute.LOGIN);
     } else {
       setToken(null);
+      showSnackbar(formatMessage({ id: 'logout.message' }));
     }
   };
 
