@@ -4,7 +4,7 @@ import { Goals } from './Goals';
 
 describe('Goal component', () => {
   it("renders user's goals correctly", () => {
-    render(<Goals goals={GOAL_MOCK} />);
+    render(<Goals goals={GOAL_MOCK} isError={false} isLoading={false} />);
 
     expect(screen.getByText('Goals')).toBeInTheDocument();
     expect(screen.getByText('Points: 2,222')).toBeInTheDocument();

@@ -7,15 +7,20 @@ export const responsePascalToCamelCase = <TObject>(object: TObject) => {
   const keysToCamelCase = <TInput>(input: TInput): unknown => {
     if (input && typeof input === 'object' && !Array.isArray(input)) {
       return Object.fromEntries(
-        Object.entries(input).map(([key, val]) => [changeStringToCamelCase(key), keysToCamelCase(val)]),
+        Object.entries(input).map(([key, val]) => [
+          changeStringToCamelCase(key),
+          typeof val === 'string' ? changeStringToCamelCase(val) : keysToCamelCase(val),
+        ]),
       );
     }
 
     if (Array.isArray(input)) {
-      return input.map((element) => keysToCamelCase(element));
+      return input.map((element) =>
+        keysToCamelCase(typeof element === 'string' ? changeStringToCamelCase(element) : element),
+      );
     }
 
-    return input;
+    return typeof input === 'string' ? changeStringToCamelCase(input) : input;
   };
 
   return keysToCamelCase<typeof object>(object);

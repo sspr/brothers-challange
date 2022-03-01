@@ -14,14 +14,14 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import { useLocale } from 'hooks';
-import { Card, Chip, UnitLabel } from 'ui';
+import { Card, Chip, Spinner, UnitLabel } from 'ui';
 import { calculatePoints } from 'utils/calculatePoints/calculatePoints';
 import { styles } from './WorkoutsTable.styles';
 import { WorkoutsTableProps } from './WorkoutsTable.types';
 import { Discipline } from 'api/types';
 import { Workout } from 'api/actions/player/player.types';
 
-export const WorkoutsTable = ({ data, monthNumber, onArrowClick }: WorkoutsTableProps) => {
+export const WorkoutsTable = ({ isError, isLoading, data, monthNumber, onArrowClick }: WorkoutsTableProps) => {
   const { formatMessage, formatDate } = useLocale();
 
   const date = new Date(2022, monthNumber);
@@ -30,6 +30,22 @@ export const WorkoutsTable = ({ data, monthNumber, onArrowClick }: WorkoutsTable
     workout?.elevation
       ? calculatePoints(workout.value, workout.type) + calculatePoints(workout.elevation, Discipline.ELEVATION)
       : calculatePoints(workout.value, workout.type);
+
+  if (isLoading) {
+    return (
+      <Card>
+        <Spinner />
+      </Card>
+    );
+  }
+
+  if (isError || !data) {
+    return (
+      <Card>
+        <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
+      </Card>
+    );
+  }
 
   const totalScore = data
     .map((day) =>
