@@ -31,6 +31,7 @@
   "profile.points": "Points",
   "profile.total": "Total",
   "profile.date": "Date",
+  "profile.addActivity": "add activity",
   "title.dashboard": "Dashboard",
   "login.wrongCredentials": "Couldn't login. Wrong email address or password",
   "pageNotFound.message": "Page was not found. Click link to return back to",

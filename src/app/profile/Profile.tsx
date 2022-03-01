@@ -1,14 +1,17 @@
 import { Grid, Typography } from '@mui/material';
+import { useState } from 'react';
 
 import { useLocale } from 'hooks';
-import { Card, PageTitle, Spinner } from 'ui';
+import { Button, Card, PageTitle, Spinner } from 'ui';
 import { GoalsContainer } from './goal/GoalsContainer';
 import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
 import { ProfileProps } from './Profile.types';
 import { Details } from './details/Details';
 import { SummaryTable } from './summaryTable/SummaryTable';
+import { AddActivityModal } from './addActivityModal/AddActivityModal';
 
 export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
+  const [isModalOpened, setIsModalOpened] = useState(false);
   const { formatMessage } = useLocale();
 
   if (isLoading) {
@@ -39,6 +42,19 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
           <main>
             <SummaryTable data={profileDetails} />
           </main>
+          <Button
+            onClick={() => {
+              setIsModalOpened(true);
+            }}
+          >
+            {formatMessage({ id: 'profile.addActivity' })}
+          </Button>
+          <AddActivityModal
+            isOpened={isModalOpened}
+            onModalClose={() => {
+              setIsModalOpened(false);
+            }}
+          />
         </Grid>
       </Grid>
       <WorkoutsTableContainer />
