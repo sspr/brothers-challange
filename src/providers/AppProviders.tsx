@@ -8,6 +8,7 @@ import { globalStyles } from 'assets/styles/globalStyles';
 import { LocaleContextController } from 'context/locale/localeContextController/LocaleContextController';
 import { AppProvidersProps } from './AppProviders.types';
 import { AuthContextController } from 'context/auth/authContextController/AuthContextController';
+import { SnackbarContextController } from 'context/snackbar/snackbarContextController/SnackbarContextController';
 
 export const AppProviders = ({ children }: AppProvidersProps) => {
   const queryClient = new QueryClient();
@@ -18,7 +19,9 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
         <ThemeProvider theme={theme}>
           <GlobalStyles styles={globalStyles} />
           <Router>
-            <LocaleContextController>{children}</LocaleContextController>
+            <LocaleContextController>
+              <SnackbarContextController>{children}</SnackbarContextController>
+            </LocaleContextController>
           </Router>
         </ThemeProvider>
       </AuthContextController>
