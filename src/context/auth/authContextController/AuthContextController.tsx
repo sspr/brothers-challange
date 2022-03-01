@@ -20,7 +20,7 @@ export const AuthContextController = ({ children }: AuthContextControllerProps) 
   }, [error]);
 
   useEffect(() => {
-    if (!(localStorageToken === token)) {
+    if (localStorageToken !== token) {
       localStorage.setItem(AuthStorage.TOKEN, token ? token : '');
     }
   }, [token]);

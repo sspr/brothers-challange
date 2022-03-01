@@ -1,8 +1,7 @@
 import { PLAYER_MOCK } from 'api/mock/playerMock';
 import { translations } from 'i18n/messages';
 import { render, screen } from 'tests';
-import { calculatePoints } from 'utils/calculatePoints/calculatePoints';
-import { entries } from 'utils/entries/entries';
+import { getObjectEntries, calculatePoints } from 'utils';
 import { SummaryTable } from './SummaryTable';
 
 describe('SummaryTable component', () => {
@@ -19,7 +18,7 @@ describe('SummaryTable component', () => {
     expect(screen.getByText(PLAYER_MOCK[0].score)).toBeInTheDocument();
     expect(screen.getByText(PLAYER_MOCK[0].score)).toHaveStyle({ fontWeight: 500 });
 
-    entries(PLAYER_MOCK[0].stats).forEach(([discipline]) => {
+    getObjectEntries(PLAYER_MOCK[0].stats).forEach(([discipline]) => {
       expect(screen.getByText(translations.en[`rankingTable.${discipline}`])).toBeInTheDocument();
       expect(screen.getByText(PLAYER_MOCK[0].stats[discipline])).toBeInTheDocument();
       expect(screen.getByText(calculatePoints(PLAYER_MOCK[0].stats[discipline], discipline))).toBeInTheDocument();

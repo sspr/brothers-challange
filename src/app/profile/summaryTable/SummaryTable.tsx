@@ -4,8 +4,7 @@ import { useLocale } from 'hooks';
 import { Card, Chip, UnitLabel } from 'ui';
 import { styles } from './SummaryTable.styles';
 import { SummaryTableProps } from './SummaryTable.types';
-import { calculatePoints } from 'utils/calculatePoints/calculatePoints';
-import { entries } from 'utils/entries/entries';
+import { getObjectEntries, calculatePoints } from 'utils';
 
 export const SummaryTable = ({ data }: SummaryTableProps) => {
   const { formatMessage } = useLocale();
@@ -23,7 +22,7 @@ export const SummaryTable = ({ data }: SummaryTableProps) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {entries(data.stats).map(([key, value]) => (
+            {getObjectEntries(data.stats).map(([key, value]) => (
               <TableRow key={key}>
                 <TableCell>
                   <Chip label={key} />

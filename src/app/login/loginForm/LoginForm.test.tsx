@@ -7,7 +7,7 @@ const mockLogin = jest.fn((data) => {
 
 describe('LoginForm component', () => {
   it('renders login form correctly', () => {
-    render(<LoginForm isLoading={false} isError={false} onSubmit={mockLogin} error="" />);
+    render(<LoginForm isLoading={false} onSubmit={mockLogin} error="" />);
 
     expect(screen.getAllByText('Email Address')).toHaveLength(2);
     expect(screen.getAllByText('Password')).toHaveLength(2);
@@ -15,7 +15,7 @@ describe('LoginForm component', () => {
   });
 
   it('renders proper error messages when inputs values are invalid', async () => {
-    render(<LoginForm isLoading={false} isError={false} onSubmit={mockLogin} error="" />);
+    render(<LoginForm isLoading={false} onSubmit={mockLogin} error="" />);
 
     fireEvent.submit(screen.getByText('Login'));
 
@@ -36,7 +36,7 @@ describe('LoginForm component', () => {
   });
 
   it('fires submit callback correctly, when inputs are valid', async () => {
-    render(<LoginForm isLoading={false} isError={false} onSubmit={mockLogin} error="" />);
+    render(<LoginForm isLoading={false} onSubmit={mockLogin} error="" />);
 
     fireEvent.change(screen.getByLabelText('Email Address'), {
       target: { value: 'test@test.test' },

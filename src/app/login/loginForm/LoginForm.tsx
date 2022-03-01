@@ -13,7 +13,7 @@ const defaultValues = {
   password: '',
 };
 
-export const LoginForm = ({ onSubmit, isLoading, isError, error }: LoginFormProps) => {
+export const LoginForm = ({ onSubmit, isLoading, error }: LoginFormProps) => {
   const { formatMessage } = useLocale();
 
   const { control, handleSubmit } = useForm<LoginFields>({ defaultValues });
@@ -41,10 +41,12 @@ export const LoginForm = ({ onSubmit, isLoading, isError, error }: LoginFormProp
       <Button sx={styles.loginButton} isLoading={isLoading}>
         {formatMessage({ id: 'header.login' })}
       </Button>
-      {isError && error.includes('401') && (
+      {error.includes('401') && (
         <Typography color="error">{formatMessage({ id: 'login.wrongCredentials' })}</Typography>
       )}
-      {isError && !error.includes('401') && <Typography color="error">{formatMessage({ id: 'error' })}</Typography>}
+      {error !== '' && !error.includes('401') && (
+        <Typography color="error">{formatMessage({ id: 'error' })}</Typography>
+      )}
     </Box>
   );
 };
