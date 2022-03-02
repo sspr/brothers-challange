@@ -3,10 +3,10 @@ import { Grid, Typography } from '@mui/material';
 import { useLocale } from 'hooks';
 import { Card, PageTitle, Spinner } from 'ui';
 import { GoalsContainer } from './goal/GoalsContainer';
-import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
 import { ProfileProps } from './Profile.types';
 import { Details } from './details/Details';
 import { SummaryTable } from './summaryTable/SummaryTable';
+import { WorkoutsPanel } from './workoutsPanel/WorkoutsPanel';
 
 export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
   const { formatMessage } = useLocale();
@@ -19,7 +19,7 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
     );
   }
 
-  if (isError || !profileDetails) {
+  if (isError || !profileDetails || !pageTitle) {
     return (
       <Card>
         <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
@@ -41,7 +41,7 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
           </main>
         </Grid>
       </Grid>
-      <WorkoutsTableContainer />
+      <WorkoutsPanel name={pageTitle} />
     </>
   );
 };
