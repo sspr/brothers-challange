@@ -2,7 +2,7 @@ import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, Tab
 
 import { useLocale } from 'hooks';
 import { Card, Chip, Spinner, UnitLabel } from 'ui';
-import { calculatePoints } from 'utils/calculatePoints/calculatePoints';
+import { calculatePoints, getChipBgColor } from 'utils';
 import { styles } from './WorkoutsTable.styles';
 import { WorkoutsTableProps } from './WorkoutsTable.types';
 import { Discipline } from 'api/types';
@@ -60,7 +60,14 @@ export const WorkoutsTable = ({ isError, isLoading, data, monthNumber }: Workout
             day.workouts.map((workout) => (
               <TableRow key={`Day${day.day}${workout.type}`}>
                 <TableCell>
-                  <Chip label={workout.type} description={workout?.description} />
+                  <Chip
+                    label={
+                      workout?.description
+                        ? workout?.description
+                        : formatMessage({ id: `rankingTable.${workout.type}` })
+                    }
+                    backgroundColor={getChipBgColor(workout.type)}
+                  />
                 </TableCell>
                 <TableCell>
                   {formatDate(date.setDate(day.day), {
