@@ -6,7 +6,7 @@ import { PageTitle } from 'ui';
 import { DetailsContainer } from './details/DetailsContainer';
 import { GoalsContainer } from './goal/GoalsContainer';
 import { SummaryTableContainer } from './summaryTable/SummaryTableContainer';
-import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
+import { WorkoutsPanel } from './workoutsPanel/WorkoutsPanel';
 
 export const Profile = () => {
   const { formatMessage } = useLocale();
@@ -26,7 +26,7 @@ export const Profile = () => {
           </main>
         </Grid>
       </Grid>
-      <WorkoutsTableContainer />
+      <WorkoutsPanel />
     </>
   );
 };
