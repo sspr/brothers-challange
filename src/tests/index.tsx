@@ -11,6 +11,7 @@ import { translations } from 'i18n/messages';
 import { AppProvidersProps } from 'providers/AppProviders.types';
 import { globalStyles } from 'assets/styles/globalStyles';
 import { AuthContext } from 'context/auth/authContext/AuthContext';
+import { SnackbarContextController } from 'context/snackbar/snackbarContextController/SnackbarContextController';
 
 type CustomRenderOptions<Q extends Queries = typeof queries> = RenderOptions<Q> & {
   locale?: AppLocale;
@@ -27,7 +28,9 @@ const customRender = (ui: ReactElement, options?: Omit<CustomRenderOptions, 'wra
         <Router>
           <IntlProvider defaultLocale={AppLocale.en} key={locale} locale={locale} messages={translations[locale]}>
             <AuthContext.Provider value={{ isAuthenticated: options?.isAuthenticated ?? false, setToken: () => {} }}>
-              <LocaleContext.Provider value={{ locale, setLocale }}>{children}</LocaleContext.Provider>
+              <LocaleContext.Provider value={{ locale, setLocale }}>
+                <SnackbarContextController>{children}</SnackbarContextController>
+              </LocaleContext.Provider>
             </AuthContext.Provider>
           </IntlProvider>
         </Router>
