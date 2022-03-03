@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useAuth, useLocale } from 'hooks';
 import { Card, PageTitle, Spinner } from 'ui';
 import { GoalsContainer } from './goal/GoalsContainer';
-import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
 import { ProfileProps } from './Profile.types';
 import { Details } from './details/Details';
 import { SummaryTable } from './summaryTable/SummaryTable';
 import { AddActivityModal } from './addActivityModal/AddActivityModal';
 import { styles } from './Profile.styles';
+import { WorkoutsPanel } from './workoutsPanel/WorkoutsPanel';
 
 export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -24,7 +24,7 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
     );
   }
 
-  if (isError || !profileDetails) {
+  if (isError || !profileDetails || !pageTitle) {
     return (
       <Card>
         <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
@@ -62,7 +62,7 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
           />
         </Grid>
       </Grid>
-      <WorkoutsTableContainer />
+      <WorkoutsPanel name={pageTitle} />
     </>
   );
 };

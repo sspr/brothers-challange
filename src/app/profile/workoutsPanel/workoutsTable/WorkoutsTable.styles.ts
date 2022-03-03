@@ -9,11 +9,4 @@ export const styles = {
     fontWeight: 500,
     borderBottom: 'none',
   },
-  button: {
-    width: 15,
-    height: 26,
-  },
-  arrow: {
-    height: 18,
-  },
 };
