@@ -18,8 +18,13 @@ export type Player = {
 
 export type Stats = Record<Discipline, number>;
 
+export type Goals = {
+  score: number;
+  pushUps: number;
+};
+
 export type RankingResponse = {
-  goals: { score: number; pushUps: number };
+  goals: Goals;
   players: Player[];
   stats: Record<string, Stats>;
 };

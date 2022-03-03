@@ -4,7 +4,7 @@ import { WorkoutsTable } from './WorkoutsTable';
 
 describe('WorkoutsTable component', () => {
   it('renders workouts table correctly', () => {
-    render(<WorkoutsTable monthNumber={0} data={PLAYER_WORKOUTS_MOCK[0]} />);
+    render(<WorkoutsTable monthNumber={0} data={PLAYER_WORKOUTS_MOCK[0]} isError={false} isLoading={false} />);
 
     expect(screen.getByText('Discipline')).toBeInTheDocument();
     expect(screen.getByText('Discipline')).toHaveStyle({ fontWeight: 500 });

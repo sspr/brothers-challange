@@ -32,6 +32,6 @@ export const PLAYER_MOCK: PlayerResponse[] = [
 ];
 
 export const GOAL_MOCK = {
-  points: 2222,
+  score: 2222,
   pushUps: 10000,
 };

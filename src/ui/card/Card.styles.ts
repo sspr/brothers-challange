@@ -1,3 +1,3 @@
 export const styles = {
-  paper: { mt: 2 },
+  paper: { my: 1 },
 };

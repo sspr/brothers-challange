@@ -11,5 +11,4 @@ export const styles = {
     pushUps: { backgroundColor: theme.color.brown },
     default: { backgroundColor: theme.palette.primary.dark },
   },
-  chip: { color: theme.palette.common.white },
 };

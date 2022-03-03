@@ -1,10 +1,10 @@
 import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 import { useLocale } from 'hooks';
-import { Card, DisciplineChip, UnitLabel } from 'ui';
+import { Card, Chip, UnitLabel } from 'ui';
 import { styles } from './SummaryTable.styles';
 import { SummaryTableProps } from './SummaryTable.types';
-import { getObjectEntries, calculatePoints } from 'utils';
+import { getObjectEntries, calculatePoints, getChipBgColor } from 'utils';
 
 export const SummaryTable = ({ data }: SummaryTableProps) => {
   const { formatMessage } = useLocale();
@@ -25,7 +25,7 @@ export const SummaryTable = ({ data }: SummaryTableProps) => {
             {getObjectEntries(data.stats).map(([key, value]) => (
               <TableRow key={key}>
                 <TableCell>
-                  <DisciplineChip label={key} />
+                  <Chip label={formatMessage({ id: `rankingTable.${key}` })} backgroundColor={getChipBgColor(key)} />
                 </TableCell>
                 <TableCell sx={styles.amount}>
                   {`${value} `}

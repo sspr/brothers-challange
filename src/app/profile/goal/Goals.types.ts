@@ -1,6 +1,7 @@
+import { Goals } from 'api/types';
+
 export type GoalsProps = {
-  goals: {
-    points: number;
-    pushUps: number;
-  };
+  goals: Goals | undefined;
+  isLoading: boolean;
+  isError: boolean;
 };

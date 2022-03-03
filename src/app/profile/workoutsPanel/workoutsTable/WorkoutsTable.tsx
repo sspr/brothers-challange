@@ -1,16 +1,33 @@
-import { TableContainer, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { TableContainer, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 import { useLocale } from 'hooks';
-import { DisciplineChip, UnitLabel } from 'ui';
-import { calculatePoints } from 'utils';
+import { Card, Chip, Spinner, UnitLabel } from 'ui';
+import { calculatePoints, getChipBgColor } from 'utils';
 import { styles } from './WorkoutsTable.styles';
 import { WorkoutsTableProps } from './WorkoutsTable.types';
-import { Discipline, Workout } from 'api/types';
+import { Discipline } from 'api/types';
+import { Workout } from 'api/actions/player/player.types';
 
-export const WorkoutsTable = ({ data, monthNumber }: WorkoutsTableProps) => {
+export const WorkoutsTable = ({ isError, isLoading, data, monthNumber }: WorkoutsTableProps) => {
   const { formatMessage, formatDate } = useLocale();
 
-  const activeDate = new Date(Number(process.env.REACT_APP_YEAR), monthNumber);
+  if (isLoading) {
+    return (
+      <Card>
+        <Spinner />
+      </Card>
+    );
+  }
+
+  if (isError || !data) {
+    return (
+      <Card>
+        <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
+      </Card>
+    );
+  }
+
+  const date = new Date(Number(process.env.REACT_APP_YEAR), monthNumber);
 
   const calculatePointsWithElevation = (workout: Workout) =>
     workout?.elevation
@@ -43,10 +60,17 @@ export const WorkoutsTable = ({ data, monthNumber }: WorkoutsTableProps) => {
             day.workouts.map((workout) => (
               <TableRow key={`Day${day.day}${workout.type}`}>
                 <TableCell>
-                  <DisciplineChip label={workout?.description ? workout?.description : workout.type} />
+                  <Chip
+                    label={
+                      workout?.description
+                        ? workout?.description
+                        : formatMessage({ id: `rankingTable.${workout.type}` })
+                    }
+                    backgroundColor={getChipBgColor(workout.type)}
+                  />
                 </TableCell>
                 <TableCell>
-                  {formatDate(activeDate.setDate(day.day), {
+                  {formatDate(date.setDate(day.day), {
                     day: 'numeric',
                     month: 'long',
                   })}
@@ -58,7 +82,7 @@ export const WorkoutsTable = ({ data, monthNumber }: WorkoutsTableProps) => {
                 <TableCell>
                   {workout?.elevation ? workout?.elevation : 0} <UnitLabel discipline={Discipline.ELEVATION} />
                 </TableCell>
-                <TableCell align="right">{calculatePointsWithElevation(workout)}</TableCell>
+                <TableCell align="right">{calculatePointsWithElevation(workout).toFixed(2)}</TableCell>
               </TableRow>
             )),
           )}

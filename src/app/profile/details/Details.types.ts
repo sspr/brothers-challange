@@ -1,4 +1,4 @@
 export type DetailsProps = {
-  name: string;
+  name: string | undefined;
   avatar: string;
 };

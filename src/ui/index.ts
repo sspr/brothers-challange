@@ -4,7 +4,7 @@ export * from './spinner/Spinner';
 export * from './input/Input';
 export * from './checkbox/Checkbox';
 export * from './pageNotFound/PageNotFound';
-export * from './disciplineChip/DisciplineChip';
+export * from './chip/Chip';
 export * from './unitLabel/UnitLabel';
 export * from './pageTitle/PageTitle';
 export * from './button/Button';

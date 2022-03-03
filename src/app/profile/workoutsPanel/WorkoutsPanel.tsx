@@ -3,19 +3,21 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
 
-import { useLocale } from 'hooks';
 import { Card } from 'ui';
-import { styles } from './WorkoutsPanel.styles';
+import { WorkoutsPanelProps } from './WorkoutsPanel.types';
 import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
+import { useLocale } from 'hooks';
+import { styles } from './WorkoutsPanel.styles';
 
-export const WorkoutsPanel = () => {
+export const WorkoutsPanel = ({ name }: WorkoutsPanelProps) => {
   const { formatDate } = useLocale();
   const currentMonthNumber = new Date().getMonth();
   const [activeMonthNumber, setActiveMonthNumber] = useState(currentMonthNumber);
+  const activeDate = new Date(Number(process.env.REACT_APP_YEAR), activeMonthNumber);
 
-  const handleMonthChange = (change: number) => {
-    if ((activeMonthNumber > 0 || change > 0) && (activeMonthNumber < currentMonthNumber || change < 0)) {
-      setActiveMonthNumber((prevMonth) => prevMonth + change);
+  const handleArrowClick = (change: number) => {
+    if (!(activeMonthNumber === 0 && change < 0) && !(activeMonthNumber === currentMonthNumber && change > 0)) {
+      setActiveMonthNumber(activeMonthNumber + change);
     }
   };
 
@@ -24,7 +26,7 @@ export const WorkoutsPanel = () => {
       <Grid container direction="row" justifyContent="space-between" alignItems="center">
         <Grid item>
           <Typography variant="h6">
-            {formatDate(new Date(Number(process.env.REACT_APP_YEAR), activeMonthNumber), {
+            {formatDate(activeDate, {
               year: 'numeric',
               month: 'long',
             })}
@@ -32,20 +34,20 @@ export const WorkoutsPanel = () => {
         </Grid>
         <Grid item>
           <ButtonGroup variant="contained" size="small" aria-label="outlined primary button group">
-            <Button sx={styles.button} onClick={() => handleMonthChange(-1)} disabled={activeMonthNumber === 0}>
+            <Button sx={styles.button} onClick={() => handleArrowClick(-1)} disabled={activeDate.getMonth() === 0}>
               <ArrowBackIosNewIcon sx={styles.arrow} />
             </Button>
             <Button
               sx={styles.button}
-              onClick={() => handleMonthChange(1)}
-              disabled={activeMonthNumber === currentMonthNumber}
+              onClick={() => handleArrowClick(1)}
+              disabled={currentMonthNumber === activeMonthNumber}
             >
               <ArrowForwardIosIcon sx={styles.arrow} />
             </Button>
           </ButtonGroup>
         </Grid>
       </Grid>
-      <WorkoutsTableContainer monthNumber={activeMonthNumber} />
+      <WorkoutsTableContainer monthNumber={activeMonthNumber} name={name} />
     </Card>
   );
 };
