@@ -27,7 +27,7 @@ export const WorkoutsTable = ({ isError, isLoading, data, monthNumber }: Workout
     );
   }
 
-  const date = new Date(2022, monthNumber);
+  const date = new Date(Number(process.env.REACT_APP_YEAR), monthNumber);
 
   const calculatePointsWithElevation = (workout: Workout) =>
     workout?.elevation

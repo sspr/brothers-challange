@@ -1,9 +1,8 @@
 import { Disciplines } from 'api/types';
 import { styles } from './getChipBgColor.styles';
+import { BackgroundColor } from './getChipBgColor.types';
 
-type BGC = { backgroundColor: string };
-
-export const getChipBgColor = (label: string): BGC => {
+export const getChipBgColor = (label: string): BackgroundColor => {
   const backgroundColor = Object.keys(styles.chipColor).includes(label)
     ? styles.chipColor[label as Disciplines]
     : styles.chipColor['default'];
