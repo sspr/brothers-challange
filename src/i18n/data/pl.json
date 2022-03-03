@@ -18,6 +18,8 @@
   "validation.maxLength": "Wartość w polu jest zbyt długa",
   "validation.required": "To pole jest wymagane",
   "validation.pattern": "Nieprawidłowy adres email",
+  "validation.minValue": "Zbyt mała wartość",
+  "validation.maxValue": "Zbyt duża wartość",
   "login.email": "Adres email",
   "login.password": "Hasło",
   "login.checkbox": "Zapamiętaj mnie",
@@ -36,5 +38,14 @@
   "login.wrongCredentials": "Nie można zalogować. Niepoprawny adres email lub hasło.",
   "pageNotFound.message": "Nie znaleziono strony. Kliknij w link, żeby wrócić do",
   "pageNotFound.homepage": "strony głównej",
-  "logout.message": "Wylogowano pomyślnie"
+  "logout.message": "Wylogowano pomyślnie",
+  "addActivity.distance": "Dystans",
+  "addActivity.date": "Data",
+  "addActivity.bike": "Dystans w kilometrach",
+  "addActivity.running": "Dystans w kilometrach",
+  "addActivity.swimming": "Dystans w metrach",
+  "addActivity.walking": "Dystans w kilometrach",
+  "addActivity.elevation": "Przewyższenie w metrach",
+  "addActivity.other": "Punkty",
+  "addActivity.pushUps": "Ilość"
 }

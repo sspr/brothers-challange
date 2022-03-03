@@ -10,6 +10,13 @@ describe('UnitLabel component', () => {
     expect(screen.getByText('m')).toHaveStyle({ color: theme.color.grey });
   });
 
+  it('renders unit label correctly for swimming', () => {
+    render(<UnitLabel discipline="swimming" />);
+
+    expect(screen.getByText('m')).toBeInTheDocument();
+    expect(screen.getByText('m')).toHaveStyle({ color: theme.color.grey });
+  });
+
   it('renders unit label correctly for other', () => {
     render(<UnitLabel discipline="other" />);
 

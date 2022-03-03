@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 
+import { Discipline } from 'api/types';
 import { useLocale } from 'hooks';
 import { styles } from './UnitLabel.styles';
 import { UnitLabelProps } from './UnitLabel.types';
@@ -7,7 +8,7 @@ import { UnitLabelProps } from './UnitLabel.types';
 export const UnitLabel = ({ discipline }: UnitLabelProps) => {
   const { formatMessage } = useLocale();
 
-  if (discipline === 'elevation') {
+  if (discipline === Discipline.ELEVATION || discipline === Discipline.SWIMMING) {
     return (
       <Typography variant="caption" sx={styles.units}>
         m
@@ -15,7 +16,7 @@ export const UnitLabel = ({ discipline }: UnitLabelProps) => {
     );
   }
 
-  if (discipline === 'other') {
+  if (discipline === Discipline.OTHER) {
     return (
       <Typography variant="caption" sx={styles.units}>
         {formatMessage({ id: 'rankingTable.pts' })}
@@ -23,7 +24,7 @@ export const UnitLabel = ({ discipline }: UnitLabelProps) => {
     );
   }
 
-  if (discipline === 'pushUps') {
+  if (discipline === Discipline.PUSHUPS) {
     return null;
   }
 

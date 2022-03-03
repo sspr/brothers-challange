@@ -21,7 +21,7 @@ describe('RankingTable component', () => {
         `${STATS_MOCK[name].running} km`,
       );
       expect(screen.getByText(`${STATS_MOCK[name].swimming}`, { exact: false })).toHaveTextContent(
-        `${STATS_MOCK[name].swimming} km`,
+        `${STATS_MOCK[name].swimming} m`,
       );
       expect(screen.getByText(`${STATS_MOCK[name].walking}`, { exact: false })).toHaveTextContent(
         `${STATS_MOCK[name].walking} km`,

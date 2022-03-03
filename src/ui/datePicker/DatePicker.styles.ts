@@ -1,3 +1,3 @@
 export const styles = {
-  button: { my: 1 },
+  mt: 2,
 };

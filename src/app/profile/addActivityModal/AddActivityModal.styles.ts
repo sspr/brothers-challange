@@ -10,4 +10,7 @@ export const styles = {
     boxShadow: 24,
     p: 4,
   },
+  header: {
+    mb: 3,
+  },
 };

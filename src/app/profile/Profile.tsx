@@ -1,7 +1,7 @@
 import { Grid, Typography, Button } from '@mui/material';
 import { useState } from 'react';
 
-import { useLocale } from 'hooks';
+import { useAuth, useLocale } from 'hooks';
 import { Card, PageTitle, Spinner } from 'ui';
 import { GoalsContainer } from './goal/GoalsContainer';
 import { WorkoutsTableContainer } from './workoutsTable/WorkoutsTableContainer';
@@ -9,10 +9,12 @@ import { ProfileProps } from './Profile.types';
 import { Details } from './details/Details';
 import { SummaryTable } from './summaryTable/SummaryTable';
 import { AddActivityModal } from './addActivityModal/AddActivityModal';
+import { styles } from './Profile.styles';
 
 export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const { formatMessage } = useLocale();
+  const { isAuthenticated } = useAuth();
 
   if (isLoading) {
     return (
@@ -39,18 +41,19 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
           <GoalsContainer />
         </Grid>
         <Grid item xs={12} sm={12} md={8}>
-          <main>
-            <SummaryTable data={profileDetails} />
-          </main>
-          <Button
-            fullWidth
-            variant="contained"
-            onClick={() => {
-              setIsModalOpened(true);
-            }}
-          >
-            {formatMessage({ id: 'profile.addActivity' })}
-          </Button>
+          <SummaryTable data={profileDetails} />
+          {isAuthenticated && (
+            <Button
+              sx={styles.button}
+              fullWidth
+              variant="contained"
+              onClick={() => {
+                setIsModalOpened(true);
+              }}
+            >
+              {formatMessage({ id: 'profile.addActivity' })}
+            </Button>
+          )}
           <AddActivityModal
             isOpened={isModalOpened}
             onModalClose={() => {
