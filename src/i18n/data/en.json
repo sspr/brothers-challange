@@ -18,8 +18,8 @@
   "validation.maxLength": "The given value is too long",
   "validation.required": "This field is required",
   "validation.pattern": "Email address is not valid",
-  "validation.minValue": "This value is too small",
-  "validation.maxValue": "This value is too big",
+  "validation.minValue": "The value is too small",
+  "validation.maxValue": "The value is too big",
   "login.email": "Email Address",
   "login.password": "Password",
   "login.checkbox": "Remember me",
@@ -33,7 +33,7 @@
   "profile.points": "Points",
   "profile.total": "Total",
   "profile.date": "Date",
-  "profile.addActivity": "Add activity",
+  "profile.addActivity": "Add new activity",
   "title.dashboard": "Dashboard",
   "login.wrongCredentials": "Couldn't login. Wrong email address or password",
   "pageNotFound.message": "Page was not found. Click link to return back to",
@@ -48,5 +48,6 @@
   "addActivity.elevation": "Elevation in meters",
   "addActivity.other": "Points",
   "addActivity.pushUps": "Amount",
-  "addActivity.description": "Description"
+  "addActivity.description": "Description",
+  "addActivity.button": "Add activity"
 }

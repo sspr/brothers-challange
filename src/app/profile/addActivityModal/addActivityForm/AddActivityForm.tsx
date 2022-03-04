@@ -90,7 +90,7 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
         />
       )}
       <Button sx={styles.button} size="large" isLoading={false}>
-        {formatMessage({ id: 'profile.addActivity' })}
+        {formatMessage({ id: 'addActivity.button' })}
       </Button>
     </Box>
   );
