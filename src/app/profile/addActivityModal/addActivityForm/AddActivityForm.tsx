@@ -1,7 +1,8 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 
-import { useLocale } from 'hooks';
+import { useLocale, useSnackbar } from 'hooks';
 import { InputField, SelectField, DatePickerField } from 'form/fields';
 import { requiredValidation, maxLengthValidation, maxValueValidation, minValueValidation } from 'form/validators';
 import { Button } from 'ui';
@@ -27,9 +28,17 @@ const maxPossibleValuesMap: Record<Disciplines, number> = {
   pushUps: 512,
 };
 
-export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
+export const AddActivityForm = ({
+  onSubmit,
+  error,
+  isLoading,
+  currentMonth,
+  setCurrentMonth,
+  isFromSubmittedSuccessfully,
+}: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
+  const { showSnackbar } = useSnackbar();
 
   const disciplines = Object.values(Discipline)
     .filter((discipline) => discipline !== Discipline.ELEVATION)
@@ -37,6 +46,18 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
       label: formatMessage({ id: `rankingTable.${discipline}` }),
       value: discipline,
     }));
+
+  useEffect(() => {
+    if (currentMonth !== watch('date').getMonth()) {
+      setCurrentMonth(watch('date').getMonth());
+    }
+  }, [watch('date')]);
+
+  useEffect(() => {
+    if (isFromSubmittedSuccessfully) {
+      showSnackbar(formatMessage({ id: 'addActivity.success' }));
+    }
+  }, [isFromSubmittedSuccessfully]);
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>
@@ -89,9 +110,10 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
           rules={[requiredValidation(), maxLengthValidation(30)]}
         />
       )}
-      <Button sx={styles.button} size="large" isLoading={false}>
+      <Button sx={styles.button} size="large" isLoading={isLoading}>
         {formatMessage({ id: 'addActivity.button' })}
       </Button>
+      {error !== 'null' && error !== '' && <Typography color="error">{formatMessage({ id: 'error' })}</Typography>}
     </Box>
   );
 };

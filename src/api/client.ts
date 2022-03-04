@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { AuthStorage } from 'context/auth/authStorage.enum';
 import { requestAuthorization } from './interceptors/requestAuthorization/requestAuthorization';
+import { requestCamelToPascalCase } from './interceptors/requestCamelToPascalCase/requestCamelToPascalCase';
 import { responsePascalToCamelCase } from './interceptors/responsePascalToCamelCase/responsePascalToCamelCase';
 
 export const client = axios.create({
@@ -17,6 +18,10 @@ client.interceptors.response.use(
 );
 
 client.interceptors.request.use(
-  (config) => requestAuthorization(config, localStorage.getItem(AuthStorage.TOKEN)),
+  (config) =>
+    requestAuthorization(
+      { ...config, data: requestCamelToPascalCase(config.data) },
+      localStorage.getItem(AuthStorage.TOKEN),
+    ),
   (error) => Promise.reject(error),
 );

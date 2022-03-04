@@ -49,5 +49,6 @@
   "addActivity.other": "Points",
   "addActivity.pushUps": "Amount",
   "addActivity.description": "Description",
-  "addActivity.button": "Add activity"
+  "addActivity.button": "Add activity",
+  "addActivity.success": "New activity was added successfully"
 }

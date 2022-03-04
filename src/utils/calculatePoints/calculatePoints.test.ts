@@ -20,7 +20,7 @@ describe('calculatePoints function', () => {
     expect(points).toStrictEqual({
       bike: 1000,
       running: 3000,
-      swimming: 15000,
+      swimming: 15,
       walking: 3000,
       elevation: 30,
       other: 3000,

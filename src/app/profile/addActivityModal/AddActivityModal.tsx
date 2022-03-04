@@ -1,12 +1,14 @@
 import { Box, Modal, Typography } from '@mui/material';
+import { useState } from 'react';
 
 import { useLocale } from 'hooks';
 import { styles } from './AddActivityModal.styles';
 import { AddActivityModalProps } from './AddActivityModal.types';
-import { AddActivityForm } from './addActivityForm/AddActivityForm';
+import { AddActivityFormContainer } from './addActivityForm/AddActivityFormContainer';
 
-export const AddActivityModal = ({ isOpened, onModalClose }: AddActivityModalProps) => {
+export const AddActivityModal = ({ isOpened, onModalClose, name }: AddActivityModalProps) => {
   const { formatMessage } = useLocale();
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
 
   return (
     <Modal open={isOpened} onClose={onModalClose} aria-labelledby="modal-add-activity">
@@ -14,7 +16,7 @@ export const AddActivityModal = ({ isOpened, onModalClose }: AddActivityModalPro
         <Typography variant="h6" sx={styles.header}>
           {formatMessage({ id: 'profile.addActivity' })}
         </Typography>
-        <AddActivityForm onSubmit={(data) => console.log(data)} />
+        <AddActivityFormContainer name={name} currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
       </Box>
     </Modal>
   );

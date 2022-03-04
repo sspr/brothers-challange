@@ -10,4 +10,15 @@ export type AddActivityFields = {
 
 export type AddActivityFormProps = {
   onSubmit: (data: AddActivityFields) => void;
+  currentMonth: number;
+  setCurrentMonth: (month: number) => void;
+  isFromSubmittedSuccessfully: boolean;
+  isLoading: boolean;
+  error: string | undefined;
+};
+
+export type AddActivityFormContainerProps = {
+  currentMonth: number;
+  setCurrentMonth: (month: number) => void;
+  name: string;
 };

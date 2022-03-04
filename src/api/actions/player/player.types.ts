@@ -11,3 +11,11 @@ export type PlayerWorkoutsResponse = {
   day: number;
   workouts: Workout[];
 }[];
+
+export type WorkoutPayload = {
+  day: number;
+  type: Disciplines;
+  value: number;
+  description?: string;
+  elevation?: number;
+};

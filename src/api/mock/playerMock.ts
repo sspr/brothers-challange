@@ -8,7 +8,7 @@ export const PLAYER_MOCK: PlayerResponse[] = [
     stats: {
       bike: 1,
       running: 192.677,
-      swimming: 200,
+      swimming: 2200,
       walking: 124.833,
       elevation: 4355,
       other: 7.234,

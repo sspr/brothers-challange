@@ -58,10 +58,11 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
       </Grid>
       <WorkoutsPanel name={pageTitle} />
       <AddActivityModal
-         isOpened={isModalOpened}
-         onModalClose={() => {
-           setIsModalOpened(false);
-         }}
+        name={pageTitle}
+        isOpened={isModalOpened}
+        onModalClose={() => {
+          setIsModalOpened(false);
+        }}
       />
     </>
   );
