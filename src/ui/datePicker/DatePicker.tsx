@@ -14,8 +14,10 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>((props, re
     setDate(date ? date : new Date());
   };
 
+  console.log(datePickerLocale);
+
   return (
-    <Box sx={styles}>
+    <Box sx={styles.boxWrapper}>
       <LocalizationProvider locale={datePickerLocale.locale} dateAdapter={AdapterDateFns}>
         <MUIDatePicker
           value={date}

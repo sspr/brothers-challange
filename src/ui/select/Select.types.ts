@@ -4,4 +4,4 @@ export type SelectItems = {
   options: { label: string; value: string }[];
 };
 
-export type SelectProps = Omit<MUISelectProps, 'control'> & SelectItems;
+export type SelectProps = MUISelectProps & SelectItems;

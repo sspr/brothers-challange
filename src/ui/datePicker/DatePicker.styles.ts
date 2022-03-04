@@ -1,3 +1,3 @@
 export const styles = {
-  mt: 2,
+  boxWrapper: { mt: 3, mb: 1 },
 };

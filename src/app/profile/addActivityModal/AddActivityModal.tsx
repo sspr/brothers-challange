@@ -9,12 +9,7 @@ export const AddActivityModal = ({ isOpened, onModalClose }: AddActivityModalPro
   const { formatMessage } = useLocale();
 
   return (
-    <Modal
-      open={isOpened}
-      onClose={onModalClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
+    <Modal open={isOpened} onClose={onModalClose} aria-labelledby="modal-add-activity">
       <Box sx={styles.modal}>
         <Typography variant="h6" sx={styles.header}>
           {formatMessage({ id: 'profile.addActivity' })}

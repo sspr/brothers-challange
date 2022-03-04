@@ -3,8 +3,8 @@ import { Disciplines } from 'api/types';
 export type AddActivityFields = {
   discipline: Disciplines;
   date: Date;
-  value: number;
-  elevation?: number;
+  value: string;
+  elevation?: string;
   description?: string;
 };
 

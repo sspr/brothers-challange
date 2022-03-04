@@ -47,5 +47,6 @@
   "addActivity.walking": "Distance in kilometers",
   "addActivity.elevation": "Elevation in meters",
   "addActivity.other": "Points",
-  "addActivity.pushUps": "Amount"
+  "addActivity.pushUps": "Amount",
+  "addActivity.description": "Description"
 }

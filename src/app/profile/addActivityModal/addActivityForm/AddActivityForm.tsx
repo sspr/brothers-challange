@@ -2,24 +2,22 @@ import { Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 import { useLocale } from 'hooks';
-import { InputField } from 'form/fields';
+import { InputField, SelectField, DatePickerField } from 'form/fields';
 import { requiredValidation, maxLengthValidation, maxValueValidation, minValueValidation } from 'form/validators';
 import { Button } from 'ui';
 import { AddActivityFields, AddActivityFormProps } from './AddActivityForm.types';
 import { styles } from './AddActivityForm.styles';
-import { SelectField } from 'form/fields/selectField/SelectField';
 import { Discipline, Disciplines } from 'api/types';
-import { DatePickerField } from 'form/fields/datePickerField/DatePickerField';
 
 const defaultValues: AddActivityFields = {
   discipline: 'bike',
   date: new Date(),
-  value: 0,
-  elevation: 0,
+  value: '',
+  elevation: '',
   description: '',
 };
 
-const maxPossibleValueMap: Record<Disciplines, number> = {
+const maxPossibleValuesMap: Record<Disciplines, number> = {
   bike: 1008,
   running: 100,
   swimming: 5000,
@@ -46,7 +44,7 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
         control={control}
         name="discipline"
         options={disciplines}
-        labelId="select-label"
+        labelId="select-discipline"
         id="select"
         fullWidth
         label={formatMessage({ id: `profile.discipline` })}
@@ -64,11 +62,11 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
         name="value"
         type="number"
         fullWidth
-        label={formatMessage({ id: `addActivity.${watch('discipline') || 'distance'}` })}
+        label={formatMessage({ id: `addActivity.${watch('discipline')}` })}
         rules={[
           requiredValidation(),
           minValueValidation(1),
-          maxValueValidation(maxPossibleValueMap[watch('discipline')]),
+          maxValueValidation(maxPossibleValuesMap[watch('discipline')]),
         ]}
       />
       {watch('discipline') === Discipline.WALKING && (
@@ -78,7 +76,7 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
           type="number"
           fullWidth
           label={formatMessage({ id: `addActivity.elevation` })}
-          rules={[minValueValidation(0), maxValueValidation(maxPossibleValueMap.elevation)]}
+          rules={[minValueValidation(0), maxValueValidation(maxPossibleValuesMap.elevation)]}
         />
       )}
       {watch('discipline') === Discipline.OTHER && (
@@ -87,11 +85,11 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
           name="description"
           type="text"
           fullWidth
-          label={'Description'}
-          rules={[requiredValidation(), maxLengthValidation(20)]}
+          label={formatMessage({ id: 'addActivity.description' })}
+          rules={[requiredValidation(), maxLengthValidation(30)]}
         />
       )}
-      <Button sx={styles.fromWrapper} isLoading={false}>
+      <Button sx={styles.button} size="large" isLoading={false}>
         {formatMessage({ id: 'profile.addActivity' })}
       </Button>
     </Box>

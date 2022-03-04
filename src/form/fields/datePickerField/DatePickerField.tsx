@@ -14,7 +14,7 @@ export function DatePickerField<T extends FieldValues>({
       name={name}
       control={control}
       defaultValue={defaultValue}
-      render={({ field, fieldState }) => <DatePicker {...props} {...field} />}
+      render={({ field }) => <DatePicker {...props} {...field} />}
     />
   );
 }
