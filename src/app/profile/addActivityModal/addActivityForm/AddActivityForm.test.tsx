@@ -3,10 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, within, fireEvent, waitFor } from 'tests';
 import { AddActivityForm } from './AddActivityForm';
 
-const mockSubmit = jest.fn((data) => {
-  return Promise.resolve({ data });
-});
-
 describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for cycling', async () => {
     render(
@@ -16,7 +12,7 @@ describe('AddActivityForm component', () => {
         isFromSubmittedSuccessfully={false}
         isLoading={false}
         error={undefined}
-        onSubmit={mockSubmit}
+        onSubmit={() => {}}
       />,
     );
 
@@ -25,28 +21,6 @@ describe('AddActivityForm component', () => {
 
     expect(screen.queryAllByText('Date')).toHaveLength(2);
     expect(screen.queryAllByText('Distance in kilometers')).toHaveLength(2);
-  });
-
-  it('fires callback correctly when inputs are valid', async () => {
-    render(
-      <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
-        isFromSubmittedSuccessfully={false}
-        isLoading={false}
-        error={undefined}
-        onSubmit={mockSubmit}
-      />,
-    );
-
-    userEvent.click(screen.getByLabelText('Discipline'));
-    userEvent.click(within(screen.getByRole('listbox')).getByText('Cycling'));
-    fireEvent.change(screen.getByLabelText('Distance in kilometers'), {
-      target: { value: 10 },
-    });
-    fireEvent.submit(screen.getByText('Add activity'));
-
-    await waitFor(() => expect(mockSubmit).toHaveBeenCalled());
   });
 
   it('renders form for adding activities correctly for running', () => {
@@ -146,7 +120,38 @@ describe('AddActivityForm component', () => {
     expect(screen.queryAllByText('Amount')).toHaveLength(2);
   });
 
+  it('fires callback correctly when inputs are valid', async () => {
+    const mockSubmit = jest.fn((data) => {
+      return Promise.resolve({ data });
+    });
+
+    render(
+      <AddActivityForm
+        currentMonth={1}
+        setCurrentMonth={() => {}}
+        isFromSubmittedSuccessfully={false}
+        isLoading={false}
+        error={undefined}
+        onSubmit={mockSubmit}
+      />,
+    );
+
+    userEvent.click(screen.getByLabelText('Discipline'));
+    userEvent.click(within(screen.getByRole('listbox')).getByText('Cycling'));
+
+    fireEvent.change(screen.getByLabelText('Distance in kilometers'), {
+      target: { value: 10 },
+    });
+    fireEvent.submit(screen.getByText('Add activity'));
+
+    await waitFor(() => expect(mockSubmit).toHaveBeenCalled());
+  });
+
   it('validates inputs correctly for walking', async () => {
+    const mockSubmit = jest.fn((data) => {
+      return Promise.resolve({ data });
+    });
+
     render(
       <AddActivityForm
         currentMonth={1}
@@ -182,6 +187,10 @@ describe('AddActivityForm component', () => {
   });
 
   it('validates inputs correctly for other', async () => {
+    const mockSubmit = jest.fn((data) => {
+      return Promise.resolve({ data });
+    });
+
     render(
       <AddActivityForm
         currentMonth={1}
