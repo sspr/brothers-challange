@@ -54,15 +54,15 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
               {formatMessage({ id: 'profile.addActivity' })}
             </Button>
           )}
-          <AddActivityModal
-            isOpened={isModalOpened}
-            onModalClose={() => {
-              setIsModalOpened(false);
-            }}
-          />
         </Grid>
       </Grid>
       <WorkoutsPanel name={pageTitle} />
+      <AddActivityModal
+         isOpened={isModalOpened}
+         onModalClose={() => {
+           setIsModalOpened(false);
+         }}
+      />
     </>
   );
 };
