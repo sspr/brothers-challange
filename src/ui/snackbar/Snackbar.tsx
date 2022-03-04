@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react';
 import { Alert, Snackbar as MuiSnackbar } from '@mui/material';
 
 import { SnackbarProps } from './Snackbar.types';
 import { styles } from './Snackbar.styles';
 
-export const Snackbar = ({ text }: SnackbarProps) => {
-  const [isSnackbarOpen, setSnackbarOpen] = useState(false);
-
-  useEffect(() => {
-    if (text) {
-      setSnackbarOpen(true);
-    }
-  }, [text]);
-
+export const Snackbar = ({ text, onClose }: SnackbarProps) => {
   return (
-    <MuiSnackbar open={isSnackbarOpen} autoHideDuration={3000} onClose={() => setSnackbarOpen(false)}>
+    <MuiSnackbar open={!!text} autoHideDuration={3000} onClose={onClose}>
       <Alert color="success" sx={styles}>
         {text}
       </Alert>

@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 
+import { DatePickerLocale, datePickerLocale } from 'context/locale/datePickerLocale';
 import { LocaleContext } from 'context/locale/localeContext/LocaleContext';
 import { LocaleContextValuesTypes } from 'context/locale/localeContext/LocaleContext.types';
 
-export const useLocale = (): IntlShape & LocaleContextValuesTypes => {
+export const useLocale = (): IntlShape & LocaleContextValuesTypes & { datePickerLocale: DatePickerLocale } => {
   const intl = useIntl();
   const context = useContext(LocaleContext);
 
@@ -15,5 +16,6 @@ export const useLocale = (): IntlShape & LocaleContextValuesTypes => {
   return {
     ...intl,
     ...context,
+    datePickerLocale: datePickerLocale[context.locale],
   };
 };
