@@ -1,3 +1,3 @@
 export const styles = {
-  button: { my: 1 },
+  boxWrapper: { mb: 1 },
 };
