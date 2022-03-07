@@ -1,5 +1,6 @@
 import { Grid, Typography, Button } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth, useLocale } from 'hooks';
 import { Card, PageTitle, Spinner } from 'ui';
@@ -10,11 +11,13 @@ import { SummaryTable } from './summaryTable/SummaryTable';
 import { AddActivityModal } from './addActivityModal/AddActivityModal';
 import { styles } from './Profile.styles';
 import { WorkoutsPanel } from './workoutsPanel/WorkoutsPanel';
+import { AppRoute, AppRouteProfilePossibleName } from 'routing/AppRoute.enum';
 
 export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const { formatMessage } = useLocale();
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   if (isLoading) {
     return (
@@ -25,6 +28,10 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
   }
 
   if (isError || !profileDetails || !pageTitle) {
+    if (Object.values(AppRouteProfilePossibleName).filter((route) => route === pageTitle).length === 0) {
+      navigate(AppRoute.PAGENOTFOUND);
+    }
+
     return (
       <Card>
         <Typography align="center">{formatMessage({ id: 'error' })}</Typography>

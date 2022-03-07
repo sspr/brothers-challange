@@ -1,5 +1,4 @@
 import { Box, Modal, Typography } from '@mui/material';
-import { useState } from 'react';
 
 import { useLocale } from 'hooks';
 import { styles } from './AddActivityModal.styles';
@@ -8,7 +7,6 @@ import { AddActivityFormContainer } from './addActivityForm/AddActivityFormConta
 
 export const AddActivityModal = ({ isOpened, onModalClose, name }: AddActivityModalProps) => {
   const { formatMessage } = useLocale();
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
 
   return (
     <Modal open={isOpened} onClose={onModalClose} aria-labelledby="modal-add-activity">
@@ -16,7 +14,7 @@ export const AddActivityModal = ({ isOpened, onModalClose, name }: AddActivityMo
         <Typography variant="h6" sx={styles.header}>
           {formatMessage({ id: 'profile.addActivity' })}
         </Typography>
-        <AddActivityFormContainer name={name} currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
+        <AddActivityFormContainer name={name} onModalClose={onModalClose} />
       </Box>
     </Modal>
   );

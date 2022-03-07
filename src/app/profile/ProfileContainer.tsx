@@ -8,7 +8,9 @@ import { useQuery } from 'api/hooks';
 export const ProfileContainer = () => {
   const { name } = useParams();
 
-  const { isLoading, isError, data } = useQuery<PlayerResponse>(createGetPlayerDetailsAction(String(name)));
+  const { isLoading, isError, data } = useQuery<PlayerResponse>(createGetPlayerDetailsAction(String(name)), {
+    refetchOnWindowFocus: true,
+  });
 
   return <Profile profileDetails={data} isLoading={isLoading} isError={isError} pageTitle={name} />;
 };

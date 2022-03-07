@@ -7,12 +7,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for cycling', async () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -26,12 +25,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for running', () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -45,12 +43,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for swimming', () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -64,12 +61,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for walking', () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -84,12 +80,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for others', () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -104,12 +99,11 @@ describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for push ups', () => {
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
+        onModalClose={() => {}}
       />,
     );
 
@@ -127,12 +121,11 @@ describe('AddActivityForm component', () => {
 
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
+        onModalClose={() => {}}
       />,
     );
 
@@ -154,12 +147,11 @@ describe('AddActivityForm component', () => {
 
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
+        onModalClose={() => {}}
       />,
     );
 
@@ -193,12 +185,11 @@ describe('AddActivityForm component', () => {
 
     render(
       <AddActivityForm
-        currentMonth={1}
-        setCurrentMonth={() => {}}
         isFromSubmittedSuccessfully={false}
-        isLoading={false}
+        isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
+        onModalClose={() => {}}
       />,
     );
 

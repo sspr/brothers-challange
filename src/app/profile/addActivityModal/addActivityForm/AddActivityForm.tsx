@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
+import { focusManager } from 'react-query';
 
 import { useLocale, useSnackbar } from 'hooks';
 import { InputField, SelectField, DatePickerField } from 'form/fields';
@@ -31,10 +32,9 @@ const maxPossibleValuesMap: Record<Disciplines, number> = {
 export const AddActivityForm = ({
   onSubmit,
   error,
-  isLoading,
-  currentMonth,
-  setCurrentMonth,
+  isSubmitting,
   isFromSubmittedSuccessfully,
+  onModalClose,
 }: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
@@ -48,14 +48,10 @@ export const AddActivityForm = ({
     }));
 
   useEffect(() => {
-    if (currentMonth !== watch('date').getMonth()) {
-      setCurrentMonth(watch('date').getMonth());
-    }
-  }, [watch('date')]);
-
-  useEffect(() => {
     if (isFromSubmittedSuccessfully) {
       showSnackbar(formatMessage({ id: 'addActivity.success' }));
+      onModalClose();
+      focusManager.setFocused(true);
     }
   }, [isFromSubmittedSuccessfully]);
 
@@ -110,7 +106,7 @@ export const AddActivityForm = ({
           rules={[requiredValidation(), maxLengthValidation(30)]}
         />
       )}
-      <Button sx={styles.button} size="large" isLoading={isLoading}>
+      <Button sx={styles.button} size="large" isLoading={isSubmitting}>
         {formatMessage({ id: 'addActivity.button' })}
       </Button>
       {error !== 'null' && error !== '' && <Typography color="error">{formatMessage({ id: 'error' })}</Typography>}

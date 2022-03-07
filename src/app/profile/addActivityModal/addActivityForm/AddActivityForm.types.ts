@@ -1,4 +1,4 @@
-import { Disciplines } from 'api/types';
+import { Disciplines, WorkoutPayload } from 'api/types';
 
 export type AddActivityFields = {
   discipline: Disciplines;
@@ -10,15 +10,18 @@ export type AddActivityFields = {
 
 export type AddActivityFormProps = {
   onSubmit: (data: AddActivityFields) => void;
-  currentMonth: number;
-  setCurrentMonth: (month: number) => void;
   isFromSubmittedSuccessfully: boolean;
-  isLoading: boolean;
+  isSubmitting: boolean;
   error: string | undefined;
+  onModalClose: VoidFunction;
 };
 
 export type AddActivityFormContainerProps = {
-  currentMonth: number;
-  setCurrentMonth: (month: number) => void;
   name: string;
+  onModalClose: VoidFunction;
+};
+
+export type WorkoutPayloadWithOptions = {
+  data: WorkoutPayload;
+  monthNumber: number;
 };
