@@ -1,5 +1,5 @@
 import { Grid, Typography, Button } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth, useLocale } from 'hooks';
@@ -11,13 +11,19 @@ import { SummaryTable } from './summaryTable/SummaryTable';
 import { AddActivityModal } from './addActivityModal/AddActivityModal';
 import { styles } from './Profile.styles';
 import { WorkoutsPanel } from './workoutsPanel/WorkoutsPanel';
-import { AppRoute, AppRouteProfilePossibleName } from 'routing/AppRoute.enum';
+import { AppRoute } from 'routing/AppRoute.enum';
 
-export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: ProfileProps) => {
+export const Profile = ({ profileDetails, isLoading, error, pageTitle }: ProfileProps) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const { formatMessage } = useLocale();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (String(error).includes('404')) {
+      navigate(AppRoute.PAGE_NOT_FOUND);
+    }
+  }, [error]);
 
   if (isLoading) {
     return (
@@ -27,14 +33,12 @@ export const Profile = ({ profileDetails, isLoading, isError, pageTitle }: Profi
     );
   }
 
-  if (isError || !profileDetails || !pageTitle) {
-    if (Object.values(AppRouteProfilePossibleName).filter((route) => route === pageTitle).length === 0) {
-      navigate(AppRoute.PAGENOTFOUND);
-    }
-
+  if (!!error || !profileDetails || !pageTitle) {
     return (
       <Card>
-        <Typography align="center">{formatMessage({ id: 'error' })}</Typography>
+        <Typography align="center">
+          {String(error).includes('404') ? formatMessage({ id: 'error' }) : formatMessage({ id: 'error' })}
+        </Typography>
       </Card>
     );
   }

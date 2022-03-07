@@ -3,6 +3,6 @@ import { PlayerResponse } from 'api/types';
 export type ProfileProps = {
   profileDetails: PlayerResponse | undefined;
   isLoading: boolean;
-  isError: boolean;
+  error: unknown;
   pageTitle: string | undefined;
 };
