@@ -13,12 +13,12 @@ export type AddActivityFormProps = {
   isFromSubmittedSuccessfully: boolean;
   isSubmitting: boolean;
   error: string | undefined;
-  onModalClose: VoidFunction;
+  onFormSubmission: VoidFunction;
 };
 
 export type AddActivityFormContainerProps = {
   name: string;
-  onModalClose: VoidFunction;
+  onFormSubmission: VoidFunction;
 };
 
 export type WorkoutPayloadWithOptions = {

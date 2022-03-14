@@ -11,7 +11,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -29,7 +29,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -47,7 +47,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -65,7 +65,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -84,7 +84,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -103,7 +103,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -125,7 +125,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -151,7 +151,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 
@@ -189,7 +189,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onModalClose={() => {}}
+        onFormSubmission={() => {}}
       />,
     );
 

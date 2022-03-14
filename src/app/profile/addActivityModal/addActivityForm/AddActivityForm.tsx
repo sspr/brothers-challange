@@ -1,9 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import { focusManager } from 'react-query';
 
-import { useLocale, useSnackbar } from 'hooks';
+import { useLocale } from 'hooks';
 import { InputField, SelectField, DatePickerField } from 'form/fields';
 import { requiredValidation, maxLengthValidation, maxValueValidation, minValueValidation } from 'form/validators';
 import { Button } from 'ui';
@@ -34,11 +33,10 @@ export const AddActivityForm = ({
   error,
   isSubmitting,
   isFromSubmittedSuccessfully,
-  onModalClose,
+  onFormSubmission,
 }: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
-  const { showSnackbar } = useSnackbar();
 
   const disciplines = Object.values(Discipline)
     .filter((discipline) => discipline !== Discipline.ELEVATION)
@@ -49,9 +47,7 @@ export const AddActivityForm = ({
 
   useEffect(() => {
     if (isFromSubmittedSuccessfully) {
-      showSnackbar(formatMessage({ id: 'addActivity.success' }));
-      onModalClose();
-      focusManager.setFocused(true);
+      onFormSubmission();
     }
   }, [isFromSubmittedSuccessfully]);
 

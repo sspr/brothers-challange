@@ -20,7 +20,7 @@ export const Profile = ({ profileDetails, isLoading, error, pageTitle }: Profile
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (String(error).includes('404')) {
+    if (error?.message.includes('404')) {
       navigate(AppRoute.PAGE_NOT_FOUND);
     }
   }, [error]);
@@ -36,9 +36,7 @@ export const Profile = ({ profileDetails, isLoading, error, pageTitle }: Profile
   if (!!error || !profileDetails || !pageTitle) {
     return (
       <Card>
-        <Typography align="center">
-          {String(error).includes('404') ? formatMessage({ id: 'error' }) : formatMessage({ id: 'error' })}
-        </Typography>
+        <Typography align="center">{error?.message.includes('404') ? null : formatMessage({ id: 'error' })}</Typography>
       </Card>
     );
   }
