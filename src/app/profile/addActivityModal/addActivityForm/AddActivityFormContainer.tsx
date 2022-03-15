@@ -4,7 +4,7 @@ import { AddActivityForm } from './AddActivityForm';
 import { AddActivityFormContainerProps, WorkoutPayloadWithOptions } from './AddActivityForm.types';
 import { convertDataBeforeSubmission } from './utils/convertDataBeforeSubmission';
 
-export const AddActivityFormContainer = ({ name, onFormSubmission }: AddActivityFormContainerProps) => {
+export const AddActivityFormContainer = ({ name, onSave }: AddActivityFormContainerProps) => {
   const { mutate, data, isLoading, error } = useMutation<WorkoutPayloadWithOptions, string>(({ data, monthNumber }) =>
     createAddPlayerWorkoutAction(name, monthNumber + 1, data),
   );
@@ -15,7 +15,7 @@ export const AddActivityFormContainer = ({ name, onFormSubmission }: AddActivity
       isFromSubmittedSuccessfully={!!data}
       isSubmitting={isLoading}
       error={String(error)}
-      onFormSubmission={onFormSubmission}
+      onSave={onSave}
     />
   );
 };

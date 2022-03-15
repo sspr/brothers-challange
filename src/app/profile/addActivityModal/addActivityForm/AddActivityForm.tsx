@@ -33,7 +33,7 @@ export const AddActivityForm = ({
   error,
   isSubmitting,
   isFromSubmittedSuccessfully,
-  onFormSubmission,
+  onSave,
 }: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
@@ -47,7 +47,7 @@ export const AddActivityForm = ({
 
   useEffect(() => {
     if (isFromSubmittedSuccessfully) {
-      onFormSubmission();
+      onSave();
     }
   }, [isFromSubmittedSuccessfully]);
 

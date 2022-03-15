@@ -11,7 +11,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -29,7 +29,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -47,7 +47,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -65,7 +65,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -84,7 +84,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -103,7 +103,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={() => {}}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -125,7 +125,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -151,7 +151,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 
@@ -189,7 +189,7 @@ describe('AddActivityForm component', () => {
         isSubmitting={false}
         error={undefined}
         onSubmit={mockSubmit}
-        onFormSubmission={() => {}}
+        onSave={() => {}}
       />,
     );
 

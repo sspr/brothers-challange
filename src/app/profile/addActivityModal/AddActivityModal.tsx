@@ -10,7 +10,7 @@ export const AddActivityModal = ({ isOpened, onModalClose, name }: AddActivityMo
   const { formatMessage } = useLocale();
   const { showSnackbar } = useSnackbar();
 
-  const onSubmit = () => {
+  const handleSave = () => {
     showSnackbar(formatMessage({ id: 'addActivity.success' }));
     onModalClose();
     focusManager.setFocused(true);
@@ -22,7 +22,7 @@ export const AddActivityModal = ({ isOpened, onModalClose, name }: AddActivityMo
         <Typography variant="h6" sx={styles.header}>
           {formatMessage({ id: 'profile.addActivity' })}
         </Typography>
-        <AddActivityFormContainer name={name} onFormSubmission={onSubmit} />
+        <AddActivityFormContainer name={name} onSave={handleSave} />
       </Box>
     </Modal>
   );
