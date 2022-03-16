@@ -10,10 +10,8 @@ export type AddActivityFields = {
 
 export type AddActivityFormProps = {
   onSubmit: (data: AddActivityFields) => void;
-  isFromSubmittedSuccessfully: boolean;
   isSubmitting: boolean;
   error: string | undefined;
-  onSave: VoidFunction;
 };
 
 export type AddActivityFormContainerProps = {

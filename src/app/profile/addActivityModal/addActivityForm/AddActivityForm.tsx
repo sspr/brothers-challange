@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 
 import { useLocale } from 'hooks';
 import { InputField, SelectField, DatePickerField } from 'form/fields';
@@ -28,13 +27,7 @@ const maxPossibleValuesMap: Record<Disciplines, number> = {
   pushUps: 512,
 };
 
-export const AddActivityForm = ({
-  onSubmit,
-  error,
-  isSubmitting,
-  isFromSubmittedSuccessfully,
-  onSave,
-}: AddActivityFormProps) => {
+export const AddActivityForm = ({ onSubmit, error, isSubmitting }: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
 
@@ -44,12 +37,6 @@ export const AddActivityForm = ({
       label: formatMessage({ id: `rankingTable.${discipline}` }),
       value: discipline,
     }));
-
-  useEffect(() => {
-    if (isFromSubmittedSuccessfully) {
-      onSave();
-    }
-  }, [isFromSubmittedSuccessfully]);
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={styles.fromWrapper}>

@@ -5,15 +5,7 @@ import { AddActivityForm } from './AddActivityForm';
 
 describe('AddActivityForm component', () => {
   it('renders form for adding activities correctly for cycling', async () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Cycling'));
@@ -23,15 +15,7 @@ describe('AddActivityForm component', () => {
   });
 
   it('renders form for adding activities correctly for running', () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Running'));
@@ -41,15 +25,7 @@ describe('AddActivityForm component', () => {
   });
 
   it('renders form for adding activities correctly for swimming', () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Swimming'));
@@ -59,15 +35,7 @@ describe('AddActivityForm component', () => {
   });
 
   it('renders form for adding activities correctly for walking', () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Walking'));
@@ -78,15 +46,7 @@ describe('AddActivityForm component', () => {
   });
 
   it('renders form for adding activities correctly for others', () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Others'));
@@ -97,15 +57,7 @@ describe('AddActivityForm component', () => {
   });
 
   it('renders form for adding activities correctly for push ups', () => {
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={() => {}}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={() => {}} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Push ups'));
@@ -119,15 +71,7 @@ describe('AddActivityForm component', () => {
       return Promise.resolve({ data });
     });
 
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={mockSubmit}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={mockSubmit} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Cycling'));
@@ -145,15 +89,7 @@ describe('AddActivityForm component', () => {
       return Promise.resolve({ data });
     });
 
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={mockSubmit}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={mockSubmit} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Walking'));
@@ -183,15 +119,7 @@ describe('AddActivityForm component', () => {
       return Promise.resolve({ data });
     });
 
-    render(
-      <AddActivityForm
-        isFromSubmittedSuccessfully={false}
-        isSubmitting={false}
-        error={undefined}
-        onSubmit={mockSubmit}
-        onSave={() => {}}
-      />,
-    );
+    render(<AddActivityForm isSubmitting={false} error={undefined} onSubmit={mockSubmit} />);
 
     userEvent.click(screen.getByLabelText('Discipline'));
     userEvent.click(within(screen.getByRole('listbox')).getByText('Others'));

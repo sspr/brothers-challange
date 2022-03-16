@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { createAddPlayerWorkoutAction } from 'api/actions/player/playerActions';
 import { useMutation } from 'api/hooks';
 import { AddActivityForm } from './AddActivityForm';
@@ -9,13 +11,17 @@ export const AddActivityFormContainer = ({ name, onSave }: AddActivityFormContai
     createAddPlayerWorkoutAction(name, monthNumber + 1, data),
   );
 
+  useEffect(() => {
+    if (data) {
+      onSave();
+    }
+  }, [data]);
+
   return (
     <AddActivityForm
       onSubmit={(data) => mutate({ data: convertDataBeforeSubmission(data), monthNumber: data.date.getMonth() })}
-      isFromSubmittedSuccessfully={!!data}
       isSubmitting={isLoading}
       error={String(error)}
-      onSave={onSave}
     />
   );
 };
