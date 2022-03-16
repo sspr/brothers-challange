@@ -1,4 +1,5 @@
 import { Action } from '../../types';
+import { WorkoutPayload } from './player.types';
 
 export const createGetPlayerDetailsAction = (playerName: string): Action => ({
   method: 'GET',
@@ -8,4 +9,14 @@ export const createGetPlayerDetailsAction = (playerName: string): Action => ({
 export const createGetPlayerWorkoutsAction = (playerName: string, monthNumber: number): Action => ({
   method: 'GET',
   url: `/player/${playerName}/workouts/${monthNumber}`,
+});
+
+export const createAddPlayerWorkoutAction = (
+  playerName: string,
+  monthNumber: number,
+  workoutDetails: WorkoutPayload,
+): Action => ({
+  method: 'POST',
+  url: `/player/${playerName}/workouts/${monthNumber}`,
+  data: workoutDetails,
 });

@@ -49,5 +49,6 @@
   "addActivity.other": "Punkty",
   "addActivity.pushUps": "Ilość",
   "addActivity.description": "Opis",
-  "addActivity.button": "Dodaj aktywność"
+  "addActivity.button": "Dodaj aktywność",
+  "addActivity.success": "Nowa aktywność została dodana pomyślnie"
 }

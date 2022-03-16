@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 
 import { useLocale } from 'hooks';
@@ -27,7 +27,7 @@ const maxPossibleValuesMap: Record<Disciplines, number> = {
   pushUps: 512,
 };
 
-export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
+export const AddActivityForm = ({ onSubmit, error, isSubmitting }: AddActivityFormProps) => {
   const { formatMessage } = useLocale();
   const { control, handleSubmit, watch } = useForm<AddActivityFields>({ defaultValues });
 
@@ -89,9 +89,10 @@ export const AddActivityForm = ({ onSubmit }: AddActivityFormProps) => {
           rules={[requiredValidation(), maxLengthValidation(30)]}
         />
       )}
-      <Button sx={styles.button} size="large" isLoading={false}>
+      <Button sx={styles.button} size="large" isLoading={isSubmitting}>
         {formatMessage({ id: 'addActivity.button' })}
       </Button>
+      {error !== 'null' && error !== '' && <Typography color="error">{formatMessage({ id: 'error' })}</Typography>}
     </Box>
   );
 };
